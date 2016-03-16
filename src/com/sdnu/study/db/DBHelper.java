@@ -4,7 +4,6 @@ import com.sdnu.study.config.MyConfig;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
 
 public class DBHelper extends SQLiteOpenHelper {
@@ -18,7 +17,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
 	@Override
 	public void onCreate(SQLiteDatabase db) {
-		db.execSQL("CREATE TABLE ad_record(id PRIMARY KEY NOT NULL, adUrl TEXT, apMac TEXT, createDate DATETIME);"); 
+		db.execSQL("create table pinyin(id integer primary key autoincrement,mchar varchar(4),hanzi varchar(4),pinyin varchar(10),pic_path varchar(32),duyin varchar(32));"); 
 	}
 	
 	@Override
