@@ -3,17 +3,77 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-    
-    
-    <GridLayout 
-        android:id="@+id/glBiao"
-        android:layout_width="match_parent"
-    	android:layout_height="match_parent"
-    	android:rowCount="4"
-    	android:columnCount="4"
-        >
-  
-        
-    </GridLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/pro_shenblue"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/pinyinbiao"
+            android:textColor="@color/pro_white"
+            android:textSize="24sp" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/fl_chracterlist"
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_height="0dp"
+        android:background="@drawable/blue_border"
+        android:layout_margin="3dp"
+        android:gravity="center"
+        >
+        <!-- 
+        <GridView
+        android:id="@+id/glPinyinbiao"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:columnWidth="60dp"
+        android:gravity="center"
+        android:horizontalSpacing="10dp"
+        android:numColumns="auto_fit"
+        android:stretchMode="columnWidth"
+        android:background="@drawable/blue_border"
+        android:layout_margin="4dp"
+        android:verticalSpacing="10dp" >
+   	 </GridView>
+        
+         -->
+    </FrameLayout>
+	<LinearLayout 
+	    android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+	    android:orientation="horizontal"
+	    android:gravity="center"
+	    android:background="@drawable/blue_border"
+	    >
+	    <TextView 
+	        android:id="@+id/tvYunmubiao"
+	        android:layout_width="0dp"
+        	android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:gravity="center"
+	        android:paddingTop="10dp"
+	        android:paddingBottom="10dp"
+	        android:background="@color/pro_shenblue"
+	        android:text="韵母表"
+	        />
+	    <TextView 
+	        android:id="@+id/tvShengmubiao"
+	        android:layout_width="0dp"
+        	android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:text="声母表"
+	        android:paddingTop="10dp"
+	        android:paddingBottom="10dp"
+	        android:gravity="center"
+	        />
+	  
+	</LinearLayout>
 </LinearLayout>

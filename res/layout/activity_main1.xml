@@ -1,0 +1,88 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg"
+    android:gravity="center_horizontal"
+     >
+
+    <LinearLayout
+        android:id="@+id/llTitlebar"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/pro_shenblue"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Study Chinese"
+            android:textColor="@color/pro_white"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/iv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/llTitlebar"
+        android:visibility="gone"
+        android:src="@drawable/everday" />
+
+    <TextView
+        
+        android:id="@+id/tvPinyinbiao"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_gravity="right"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/iv"
+        android:background="@drawable/cirlcle_item"
+        android:gravity="center"
+        android:layout_alignParentRight="true"
+        android:text="入门"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/tvStart"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_gravity="left"
+        android:layout_marginLeft="30dp"
+        android:background="@drawable/cirlcle_item"
+        android:layout_below="@+id/iv"
+		android:layout_marginTop="70dp"
+        android:gravity="center"
+        android:text="初级"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/tvMiddle"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_gravity="right"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="55dp"
+        android:background="@drawable/cirlcle_item"
+        android:gravity="center"
+        android:text="中级"
+        android:layout_below="@+id/tvPinyinbiao"
+        android:layout_alignParentRight="true"
+        android:textSize="24sp" />
+
+    <TextView
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_gravity="left"
+        android:layout_marginLeft="40dp"
+        android:background="@drawable/cirlcle_item"
+        android:gravity="center"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/tvStart"
+        android:layout_marginTop="35dp"
+        android:text="高级"
+        android:textSize="24sp" />
+
+</RelativeLayout>

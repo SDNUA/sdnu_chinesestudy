@@ -1,45 +1,113 @@
 package com.sdnu.study.activity;
 
-import java.util.List;
-
-import com.sdnu.study.domain.PinyinTableItem;
-import com.sdnu.study.myUtils.DBUtils;
-
-import android.app.ActionBar.LayoutParams;
 import android.app.Activity;
 import android.os.Bundle;
-import android.widget.Button;
-import android.widget.GridLayout;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.TextView;
 
-public class AcyPinyin extends Activity {
+import com.sdnu.study.fragment.FrmtShengmu;
+import com.sdnu.study.fragment.FrmtYunmu;
+
+public class AcyPinyin extends FragmentActivity implements OnClickListener {
 	
 	
-	private GridLayout gl;
+	
+	private  TextView tvYunmu;
+	private  TextView tvShengmu;
+	
+	
+	//fragment
+	private FrmtShengmu frmShengmu;
+	private FrmtYunmu frmYunmu;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.pinyinbiao);
 		
-		List<PinyinTableItem> list= getPinyinList();
-		gl=(GridLayout) this.findViewById(R.id.glBiao);
-		
-		for(PinyinTableItem item:list){
-			Button btn=new Button(this);
-			btn.setWidth(LayoutParams.WRAP_CONTENT);
-			btn.setHeight(LayoutParams.WRAP_CONTENT);
-			btn.setText(item.getmChar());
-			gl.addView(btn);
-		}
-		
+		init();
+			
 	}
 	
-	private List<PinyinTableItem> getPinyinList(){
-		DBUtils utils=DBUtils.getInstance(this);
-		utils.open();
-		List<PinyinTableItem> list=utils.findPinYinTableItem();
-		utils.close();
-		return list;
+	private void init() {
+		
+		tvYunmu=(TextView) this.findViewById(R.id.tvYunmubiao);
+		tvShengmu=(TextView) this.findViewById(R.id.tvShengmubiao);
+		
+		tvYunmu.setOnClickListener(this);
+		tvShengmu.setOnClickListener(this);
+		selectFragment(R.id.tvYunmubiao);
+	}
+	
+	
+	@Override
+	public void onClick(View v) {
+		switch (v.getId()) {
+		case R.id.tvYunmubiao:
+			resetTvColor();
+			selectFragment(v.getId());
+			break;
+			
+		case R.id.tvShengmubiao:
+			resetTvColor();
+			selectFragment(v.getId());
+			break;
+
+		default:
+			break;
+		}
+	}
+	
+	private void selectFragment(int frmtid) {
+		
+		FragmentManager fm=this.getSupportFragmentManager();
+		FragmentTransaction transaction = fm.beginTransaction();
+		hideFragment(transaction);
+		switch (frmtid) {
+		case R.id.tvYunmubiao:
+			if(frmYunmu==null){
+				frmYunmu=new FrmtYunmu();
+				transaction.add(R.id.fl_chracterlist,frmYunmu);
+			}else{
+				transaction.show(frmYunmu);
+			}
+			
+			tvYunmu.setBackgroundColor(this.getResources().getColor(R.color.pro_shenblue));
+			break;
+			
+		case R.id.tvShengmubiao:
+			if(frmShengmu==null){
+				frmShengmu=new FrmtShengmu();
+				transaction.add(R.id.fl_chracterlist, frmShengmu);
+			}else{
+				transaction.show(frmShengmu);
+			}
+			tvShengmu.setBackgroundColor(this.getResources().getColor(R.color.pro_shenblue));
+			break;
+
+		default:
+			break;
+		}
+		
+		transaction.commit();
+	}
+
+	private void hideFragment(FragmentTransaction transaction) {
+		
+		if(frmYunmu!=null){
+			transaction.hide(frmYunmu);
+		}
+		if(frmShengmu!=null){
+			transaction.hide(frmShengmu);
+		}
+	}
+
+	private void resetTvColor() {
+		tvYunmu.setBackgroundColor(this.getResources().getColor(R.color.pro_white));
+		tvShengmu.setBackgroundColor(this.getResources().getColor(R.color.pro_white));
 	}
 
 }

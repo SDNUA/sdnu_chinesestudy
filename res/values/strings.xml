@@ -3,6 +3,7 @@
 
     <string name="app_name">ChineseStudy</string>
     <string name="hello_world">拼音表</string>
+    <string name="pinyinbiao">拼音表</string>
     <string name="action_settings">Settings</string>
 
 </resources>
