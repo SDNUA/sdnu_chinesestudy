@@ -1,23 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ccc"
-    android:orientation="vertical"
-     >
+    android:background="@color/theme_grey"
+    android:orientation="vertical" >
 
     <com.jeremyfeinstein.slidingmenu.lib.SlidingMenu
         android:id="@+id/slidingmenulayout"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent" >
-		
-	           <ListView 
-	              	android:id="@+id/lv_leftslider"
-	                android:layout_width="fill_parent"
-	            	android:layout_height="wrap_content"
-	               ></ListView>
+        android:layout_height="fill_parent"
+        android:background="@color/theme_white" >
+
+        <RelativeLayout
+            android:id="@+id/iv_circle"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_marginTop="40dp"
+            android:layout_weight="1"
+            android:background="@color/theme_white"
+            android:gravity="center"
+            android:padding="16dp" >
+
+            <com.sdnu.study.myview.CircleImageView
+                android:id="@+id/civHeadImg"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:layout_centerInParent="true"
+                android:src="@drawable/ic_launcher"
+                app:border_color="@color/theme_grey"
+                app:border_width="2dp" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tvUserName"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_below="@+id/iv_circle"
+            android:layout_marginTop="0dp"
+            android:gravity="center"
+            android:text="@string/nologin" />
+
+        <ListView
+            android:id="@+id/lv_leftslider"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvUserName" >
+        </ListView>
     </com.jeremyfeinstein.slidingmenu.lib.SlidingMenu>
-    
-    
 
 </LinearLayout>

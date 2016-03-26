@@ -11,6 +11,8 @@
         android:name="android.test.InstrumentationTestRunner"
         android:targetPackage="com.sdnu.study.activity"></instrumentation>
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    
     <application
         android:name="com.sdnu.study.app.MyApplication"
         android:allowBackup="true"
@@ -28,7 +30,10 @@
             </intent-filter>
         </activity>
         <activity android:name="com.sdnu.study.activity.AcyPinyin">
-            
+        </activity>
+        <activity android:name="com.sdnu.study.activity.AcyPinyinItem">
+        </activity>
+        <activity android:name="com.sdnu.study.activity.AcyLogin">
         </activity>
     </application>
 

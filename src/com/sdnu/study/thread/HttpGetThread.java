@@ -25,16 +25,19 @@ public class HttpGetThread implements Runnable {
 		this.hand = hand;
 		// 拼接访问服务器完整的地址
 		url = Model.HTTPURL + endParamerse;
+		//url = endParamerse;
+		//gridView
 	}
 
 	@Override
 	public void run() {
 		// 获取我们回调主ui的message
 		Message msg = hand.obtainMessage();
-		Log.e("liuxiaowei", url);
+		Log.e("tag1", url);
 		try {
-			String result = myGet.doGet(Model.HTTPURL+url);
+			String result = myGet.doGet(url);
 			msg.what = 200;
+			Log.i("tag1", result);
 			msg.obj = result;
 		} catch (ClientProtocolException e) {
 			msg.what = 404;

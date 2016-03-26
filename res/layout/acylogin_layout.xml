@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E5E7E6"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:background="@drawable/head_img_border"
+        android:gravity="center_horizontal"
+        android:orientation="vertical" >
+
+        <com.sdnu.study.myview.CircleImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/everday"
+            app:border_color="#fff"
+            app:border_width="3dp" />
+    </LinearLayout>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="50dp"
+        android:paddingLeft="2dp"
+        android:singleLine="true"
+        android:textColor="@color/theme_font_color"
+        android:hint="Email"
+        android:background="@drawable/et_login_border"
+        android:drawableLeft="@drawable/icon_login_user" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_marginLeft="30dp"
+        android:paddingLeft="2dp"
+        android:textColor="@color/theme_font_color"
+        android:inputType="textPassword"
+       	android:singleLine="true"
+       	android:hint="Password"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/et_login_border"
+        android:drawableLeft="@drawable/icon_login_pw" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="30dp"
+         >
+
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:background="@drawable/login_btn"
+            android:textColor="@color/theme_font_color"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:text="@string/login" />
+
+        <TextView
+            android:id="@+id/tv_forgetpw"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_alignParentRight="true"
+            android:gravity="center"
+            android:text="@string/forget_pw" />
+    </RelativeLayout>
+
+</LinearLayout>

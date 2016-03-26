@@ -5,5 +5,8 @@
     <string name="hello_world">拼音表</string>
     <string name="pinyinbiao">拼音表</string>
     <string name="action_settings">Settings</string>
+    <string name="login">登  录</string>
+    <string name="nologin">未登录</string>
+    <string name="forget_pw">忘记密码？</string>
 
 </resources>

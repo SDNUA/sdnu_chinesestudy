@@ -9,14 +9,16 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
 
+import com.sdnu.study.config.MyConfig;
 import com.sdnu.study.domain.PinyinTableItem;
 import com.sdnu.study.myUtils.DBUtils;
 import com.sdnu.study.myview.MySlidingMenu;
 
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements OnClickListener{
 	private MySlidingMenu slidingMenu;
-	private TextView tvRumen; 
+	private TextView tvRumen;
+	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,22 +32,25 @@ public class MainActivity extends Activity {
     
     private void init() {
     	tvRumen=(TextView) this.findViewById(R.id.tvPinyinbiao);
-    	tvRumen.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				Intent i=new Intent(MainActivity.this, AcyPinyin.class);
-				MainActivity.this.startActivity(i);				
-			}
-		});
+    	
+    	tvRumen.setOnClickListener(this);
+    	
 	}
 
-	private void setData() {
+
+	@Override
+	public void onClick(View v) {
 		// TODO Auto-generated method stub
-    	DBUtils utils=DBUtils.getInstance(this);
-		utils.open();
-	
-		//utils.insert("pinyin", arrStr);
-		utils.close();
+		switch (v.getId()) {
+		case R.id.tvPinyinbiao:
+			Intent ipinyin=new Intent(MainActivity.this, AcyPinyin.class);
+			MainActivity.this.startActivity(ipinyin);	
+			break;
+
+		default:
+			break;
+		}
+		
 	}
     
    

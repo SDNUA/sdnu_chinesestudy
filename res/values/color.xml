@@ -2,5 +2,9 @@
 <resources>
     <color name="pro_blue">#dd7BC2FF</color>
     <color name="pro_white">#ddeeeeee</color>
+    <color name="theme_white">#D5D3D5</color>
+    <color name="theme_grey">#828282</color>
+    <color name="theme_login_btn">#F3F3F3</color>
+    <color name="theme_font_color">#868686</color>
     <color name="pro_shenblue">#dd0273C3</color>
 </resources>
