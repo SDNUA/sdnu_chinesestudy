@@ -29,7 +29,7 @@ public class DBTest extends AndroidTestCase {
 		List<PinyinTableItem> list=utils.findPinYinTableItem();
 		for (PinyinTableItem item:list) {
 			System.out.println("-------------");
-			System.out.println(item.getHanzi());
+			//System.out.println(item.getHanzi());
 			System.out.println("-------------");
 		}
 		

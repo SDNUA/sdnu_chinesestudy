@@ -107,9 +107,9 @@ public class DBUtils {
     	cursor=mSQLiteDatabase.rawQuery(sql,null);
     	while (cursor.moveToNext()) {
     		PinyinTableItem item=new PinyinTableItem();
-    		item.setmChar(cursor.getString(cursor.getColumnIndex("mchar")));
-    		item.setHanzi(cursor.getString(cursor.getColumnIndex("hanzi")));
-    		item.setPinyin(cursor.getString(cursor.getColumnIndex("pinyin")));
+//    		item.setmChar(cursor.getString(cursor.getColumnIndex("mchar")));
+//    		item.setHanzi(cursor.getString(cursor.getColumnIndex("hanzi")));
+//    		item.setPinyin(cursor.getString(cursor.getColumnIndex("pinyin")));
     		list.add(item);
 		}
     return list;

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- 
+"id": "1",
+            "pinyin": "a",
+            "pic": "better/images/pinyin/pic/a.jpg",
+            "fayin": "[a:]",
+            "type": "1",
+            "pos": "1",
+            "hanzi1": "啊1",
+            "hanzi2": "啊2",
+            "hanzi3": "啊3",
+            "hanzi4": "啊4",
+            "hanzipinyin1": "ā",
+            "hanzipinyin2": "á",
+            "hanzipinyin3": "ǎ",
+            "hanzipinyin4": "à",
+            "hanzifayin1": "better/images/pinyin/voice/a1.mp3",
+            "hanzifayin2": "better/images/pinyin/voice/a2.mp3",
+            "hanzifayin3": "better/images/pinyin/voice/a3.mp3",
+            "hanzifayin4": "better/images/pinyin/voice/a4.mp3"
+
+
+ -->
+<Resource>
+    <item id="0">
+        <mchar>a</mchar>
+        <mchar_fy>better/images/pinyin/voice/a1.mp3</mchar_fy>
+        <pic>better/images/pinyin/pic/a.jpg</pic>
+        <hanzi_1>啊1</hanzi_1>
+        <hanzi_2>啊2</hanzi_2>
+        <hanzi_3>啊3</hanzi_3>
+        <hanzi_4>啊4</hanzi_4>
+        <hanzi_1_py>ā</hanzi_1_py>
+        <hanzi_2_py>á</hanzi_2_py>
+        <hanzi_3_py>ǎ</hanzi_3_py>
+        <hanzi_4_py>à</hanzi_4_py>
+        <hanzi_1_fy>better/images/pinyin/voice/a1.mp3</hanzi_1_fy>
+        <hanzi_2_fy>better/images/pinyin/voice/a1.mp3</hanzi_2_fy>
+        <hanzi_3_fy>better/images/pinyin/voice/a1.mp3</hanzi_3_fy>
+        <hanzi_4_fy>better/images/pinyin/voice/a1.mp3</hanzi_4_fy>
+       
+    </item>
+    <item id="1">
+        <mchar>o</mchar>
+        <mchar_fy>better/images/pinyin/voice/a1.mp3</mchar_fy>
+        <pic>better/images/pinyin/pic/a.jpg</pic>
+        <hanzi_1>哦1</hanzi_1>
+        <hanzi_2>哦2</hanzi_2>
+        <hanzi_3>哦3</hanzi_3>
+        <hanzi_4>哦4</hanzi_4>
+        <hanzi_1_py>ā</hanzi_1_py>
+        <hanzi_2_py>á</hanzi_2_py>
+        <hanzi_3_py>ǎ</hanzi_3_py>
+        <hanzi_4_py>à</hanzi_4_py>
+        <hanzi_1_fy>better/images/pinyin/voice/a1.mp3</hanzi_1_fy>
+        <hanzi_2_fy>better/images/pinyin/voice/a1.mp3</hanzi_2_fy>
+        <hanzi_3_fy>better/images/pinyin/voice/a1.mp3</hanzi_3_fy>
+        <hanzi_4_fy>better/images/pinyin/voice/a1.mp3</hanzi_4_fy>
+    </item>
+    
+</Resource>
