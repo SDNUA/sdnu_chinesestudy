@@ -6,7 +6,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="@dimen/_50dp"
         android:background="@color/pro_shenblue"
         android:gravity="center"
         android:orientation="horizontal" >
@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:text="@string/pinyinbiao"
             android:textColor="@color/pro_white"
-            android:textSize="24sp" />
+            android:textSize="20sp" />
     </LinearLayout>
 
     <FrameLayout

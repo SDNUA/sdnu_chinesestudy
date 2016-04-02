@@ -1,5 +1,6 @@
 package com.sdnu.study.fragment;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -17,12 +18,15 @@ import android.widget.SimpleAdapter;
 
 import com.sdnu.study.activity.AcyPinyinItem;
 import com.sdnu.study.activity.R;
+import com.sdnu.study.domain.PinyinTableItem;
+import com.sdnu.study.myUtils.PullXMLUtils;
 
 public class FrmtYunmu extends Fragment implements OnItemClickListener{
 	
 	
 	private View view=null;
 	private  GridView gv;
+	private List<PinyinTableItem> ptList;
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -35,15 +39,19 @@ public class FrmtYunmu extends Fragment implements OnItemClickListener{
 	private void init() {
 		gv=(GridView) view.findViewById(R.id.glPinyinbiao);
 		
-		String arrItem[][]={{"a","阿"},{"a","阿"},{"a","阿"},{"a","阿"},
-				{"b","阿"},{"c","阿"},{"d","阿"},{"a","阿"},{"a","阿"},
-				{"a","阿"},{"a","阿"},{"a","阿"},{"a","阿"},{"a","阿"}};
+		InputStream is = this.getResources().openRawResource(
+				R.raw.res_pinyin_yunmu);
+		try {
+			ptList = PullXMLUtils.parse(is);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
 		List<HashMap<String, String>> list=new ArrayList<HashMap<String,String>>();
-		for(String str[]:arrItem){
+		for(PinyinTableItem item:ptList){
 			HashMap<String, String> map=new HashMap<String, String>();
-			map.put("mChar", str[0]);
-			map.put("mHanzi", str[1]);
+			map.put("mChar", item.getmChar());
+			map.put("mHanzi", item.getHanziFirst());
 			list.add(map);
 		}
 		

@@ -65,6 +65,10 @@ public class MySlidingMenu {
 		
 	}
 
+	public void setToggle(boolean flag) {
+		slidingMenu.toggle(flag);
+	}
+
 	private List<HashMap<String, String>> getList() {
 		// TODO Auto-generated method stub
 		

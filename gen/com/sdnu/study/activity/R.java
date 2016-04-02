@@ -31,14 +31,33 @@ containing a value of this type.
     }
     public static final class color {
         public static final int pro_blue=0x7f050000;
-        public static final int pro_shenblue=0x7f050006;
+        public static final int pro_shenblue=0x7f050007;
         public static final int pro_white=0x7f050001;
-        public static final int theme_font_color=0x7f050005;
-        public static final int theme_grey=0x7f050003;
-        public static final int theme_login_btn=0x7f050004;
-        public static final int theme_white=0x7f050002;
+        public static final int theme_font_color=0x7f050006;
+        public static final int theme_grey=0x7f050004;
+        public static final int theme_login_btn=0x7f050005;
+        public static final int theme_white=0x7f050003;
+        public static final int white=0x7f050002;
     }
     public static final class dimen {
+        public static final int _0dp=0x7f060004;
+        public static final int _10dp=0x7f060007;
+        public static final int _10sp=0x7f060008;
+        public static final int _1dp=0x7f06000b;
+        public static final int _20dp=0x7f06000d;
+        public static final int _20sp=0x7f06000e;
+        public static final int _2dp=0x7f06000a;
+        public static final int _30dp=0x7f060005;
+        public static final int _30sp=0x7f060006;
+        public static final int _40dp=0x7f060013;
+        public static final int _40sp=0x7f060014;
+        public static final int _4dp=0x7f06000c;
+        public static final int _50dp=0x7f060011;
+        public static final int _50sp=0x7f060012;
+        public static final int _5dp=0x7f060009;
+        public static final int _60dp=0x7f06000f;
+        public static final int _60sp=0x7f060010;
+        public static final int _80dp=0x7f060015;
         /**  Default screen margins, per the Android Design guidelines. 
 
          Example customization of dimensions originally defined in res/values/dimens.xml
@@ -52,97 +71,96 @@ containing a value of this type.
         public static final int sliding_menu_offset=0x7f060003;
     }
     public static final class drawable {
-        public static final int b=0x7f020000;
-        public static final int bg=0x7f020001;
-        public static final int blue_border=0x7f020002;
-        public static final int circle_btn=0x7f020003;
-        public static final int cirlcle_item=0x7f020004;
-        public static final int et_login_border=0x7f020005;
-        public static final int everday=0x7f020006;
-        public static final int head_img_border=0x7f020007;
-        public static final int ic_launcher=0x7f020008;
-        public static final int icon_login_pw=0x7f020009;
-        public static final int icon_login_user=0x7f02000a;
-        public static final int icon_sounds=0x7f02000b;
-        public static final int login_btn=0x7f02000c;
-        public static final int mainbg=0x7f02000d;
-        public static final int test=0x7f02000e;
+        public static final int acypinyinitem_gradient=0x7f020000;
+        public static final int b=0x7f020001;
+        public static final int bg=0x7f020002;
+        public static final int blue_border=0x7f020003;
+        public static final int circle_btn=0x7f020004;
+        public static final int cirlcle_item=0x7f020005;
+        public static final int et_login_border=0x7f020006;
+        public static final int everday=0x7f020007;
+        public static final int head_img_border=0x7f020008;
+        public static final int ic_launcher=0x7f020009;
+        public static final int icon_login_pw=0x7f02000a;
+        public static final int icon_login_user=0x7f02000b;
+        public static final int icon_sounds=0x7f02000c;
+        public static final int login_btn=0x7f02000d;
+        public static final int mainbg=0x7f02000e;
+        public static final int slide_menu=0x7f02000f;
+        public static final int test=0x7f020010;
     }
     public static final class id {
-        public static final int action_settings=0x7f0a0036;
-        public static final int btnPlay=0x7f0a0009;
+        public static final int LinearLayout1=0x7f0a0008;
+        public static final int LinearLayout2=0x7f0a000c;
+        public static final int action_settings=0x7f0a0031;
         public static final int btn_login=0x7f0a0006;
-        public static final int buttontitle=0x7f0a000d;
-        public static final int buttontitle1=0x7f0a0027;
-        public static final int buttontitle2=0x7f0a0028;
-        public static final int civHeadImg=0x7f0a0031;
-        public static final int fl_chracterlist=0x7f0a0029;
-        public static final int glPinyinbiao=0x7f0a002e;
-        public static final int imageView_a=0x7f0a0011;
-        public static final int imageView_sound1=0x7f0a0016;
-        public static final int imageView_sound2=0x7f0a0019;
-        public static final int imageView_sound3=0x7f0a001f;
-        public static final int imageView_sound4=0x7f0a0022;
-        public static final int iv=0x7f0a0004;
-        public static final int ivMcharSounds=0x7f0a0013;
-        public static final int iv_circle=0x7f0a0030;
-        public static final int kongbai1=0x7f0a0017;
-        public static final int kongbai2=0x7f0a001b;
-        public static final int kongbai3=0x7f0a0020;
-        public static final int kongbai4=0x7f0a0024;
-        public static final int llTitlebar=0x7f0a0003;
-        public static final int lv_leftslider=0x7f0a0033;
-        public static final int rl_first=0x7f0a000b;
-        public static final int rl_second=0x7f0a0014;
-        public static final int rl_third=0x7f0a001d;
-        public static final int rl_third122=0x7f0a0026;
-        public static final int slidingmenulayout=0x7f0a002f;
-        public static final int tableLayout1=0x7f0a000a;
-        public static final int tableRow1=0x7f0a000e;
-        public static final int tableRow2=0x7f0a0012;
-        public static final int textView2=0x7f0a0035;
-        public static final int textViewTitle=0x7f0a000c;
-        public static final int textView_a_=0x7f0a000f;
-        public static final int textView_hanzi1=0x7f0a0015;
-        public static final int textView_hanzi2=0x7f0a0018;
-        public static final int textView_hanzi3=0x7f0a001e;
-        public static final int textView_hanzi4=0x7f0a0021;
-        public static final int textView_pinyin1=0x7f0a001a;
-        public static final int textView_pinyin2=0x7f0a001c;
-        public static final int textView_pinyin3=0x7f0a0023;
-        public static final int textView_pinyin4=0x7f0a0025;
-        public static final int textView_space=0x7f0a0010;
-        public static final int tvMchar=0x7f0a0008;
-        public static final int tvMiddle=0x7f0a0005;
-        public static final int tvPinyinbiao=0x7f0a0000;
-        public static final int tvPinyinbiao1=0x7f0a0002;
-        public static final int tvPinyinbiaoHanzi=0x7f0a002d;
-        public static final int tvPinyinbiaoItem=0x7f0a002c;
-        public static final int tvShengmubiao=0x7f0a002b;
-        public static final int tvStart=0x7f0a0001;
-        public static final int tvUserName=0x7f0a0032;
-        public static final int tvYunmubiao=0x7f0a002a;
+        public static final int button1=0x7f0a000d;
+        public static final int button2=0x7f0a000e;
+        public static final int civHeadImg=0x7f0a002d;
+        public static final int fl_chracterlist=0x7f0a0025;
+        public static final int glPinyinbiao=0x7f0a002a;
+        public static final int gridView1=0x7f0a000a;
+        public static final int iv=0x7f0a0005;
+        public static final int ivHanziFirstSounds=0x7f0a0018;
+        public static final int ivHanziForthSounds=0x7f0a0024;
+        public static final int ivHanziSecondSounds=0x7f0a001c;
+        public static final int ivHanziThirdSounds=0x7f0a0020;
+        public static final int ivMcharSounds=0x7f0a0014;
+        public static final int iv_circle=0x7f0a002c;
+        public static final int letter=0x7f0a000f;
+        public static final int llTitlebar=0x7f0a0000;
+        public static final int lv_leftslider=0x7f0a002f;
+        public static final int rlHanziFirst=0x7f0a0015;
+        public static final int rlHanziForth=0x7f0a0021;
+        public static final int rlHanziSecond=0x7f0a0019;
+        public static final int rlHanziThird=0x7f0a001d;
+        public static final int rlHeadTitle=0x7f0a0010;
+        public static final int rlMchar=0x7f0a0011;
+        public static final int slidingmenulayout=0x7f0a002b;
+        public static final int textView1=0x7f0a0009;
+        public static final int textView2=0x7f0a000b;
+        public static final int tvHanziFirst=0x7f0a0016;
+        public static final int tvHanziFirstPy=0x7f0a0017;
+        public static final int tvHanziForth=0x7f0a0022;
+        public static final int tvHanziForthPy=0x7f0a0023;
+        public static final int tvHanziSecond=0x7f0a001a;
+        public static final int tvHanziSecondPy=0x7f0a001b;
+        public static final int tvHanziThird=0x7f0a001e;
+        public static final int tvHanziThirdPy=0x7f0a001f;
+        public static final int tvMchar=0x7f0a0012;
+        public static final int tvMcharFy=0x7f0a0013;
+        public static final int tvMiddle=0x7f0a0004;
+        public static final int tvPinyinbiao=0x7f0a0002;
+        public static final int tvPinyinbiaoHanzi=0x7f0a0029;
+        public static final int tvPinyinbiaoItem=0x7f0a0028;
+        public static final int tvShengmubiao=0x7f0a0027;
+        public static final int tvSlideMenu=0x7f0a0001;
+        public static final int tvStart=0x7f0a0003;
+        public static final int tvUserName=0x7f0a002e;
+        public static final int tvYunmubiao=0x7f0a0026;
         public static final int tv_forgetpw=0x7f0a0007;
-        public static final int tv_slider_item_title=0x7f0a0034;
+        public static final int tv_slider_item_title=0x7f0a0030;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
         public static final int activity_main1=0x7f030001;
         public static final int acylogin_layout=0x7f030002;
-        public static final int acypinyinitem_layout=0x7f030003;
-        public static final int acypinyinitem_layout1=0x7f030004;
-        public static final int pinyinbiao=0x7f030005;
-        public static final int pinyinbiao_item_layout=0x7f030006;
-        public static final int shengmubiao=0x7f030007;
-        public static final int slidingmenu=0x7f030008;
-        public static final int slidingmenu_item=0x7f030009;
-        public static final int yunmubiao=0x7f03000a;
+        public static final int acypinyingame_layout=0x7f030003;
+        public static final int acypinyingameitem_layout=0x7f030004;
+        public static final int acypinyinitem_layout=0x7f030005;
+        public static final int pinyinbiao=0x7f030006;
+        public static final int pinyinbiao_item_layout=0x7f030007;
+        public static final int shengmubiao=0x7f030008;
+        public static final int slidingmenu=0x7f030009;
+        public static final int slidingmenu_item=0x7f03000a;
+        public static final int yunmubiao=0x7f03000b;
     }
     public static final class menu {
         public static final int main=0x7f090000;
     }
     public static final class raw {
-        public static final int res_pinyin_yunmu=0x7f040000;
+        public static final int res_pinyin_shengmu=0x7f040000;
+        public static final int res_pinyin_yunmu=0x7f040001;
     }
     public static final class string {
         public static final int action_settings=0x7f070003;

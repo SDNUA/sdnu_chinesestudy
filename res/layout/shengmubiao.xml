@@ -8,12 +8,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
-        android:columnWidth="60dp"
+        android:columnWidth="@dimen/_80dp"
         android:gravity="center"
         android:horizontalSpacing="10dp"
         android:numColumns="auto_fit"
         android:stretchMode="columnWidth"
-        android:verticalSpacing="10dp" >
+        android:verticalSpacing="10dp"
+        android:background="@color/theme_grey"
+         >
         </GridView>
 
 </LinearLayout>

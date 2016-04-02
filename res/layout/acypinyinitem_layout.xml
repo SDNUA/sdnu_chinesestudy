@@ -1,21 +1,244 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/theme_white"
     android:orientation="vertical" >
-    
-    <TextView 
-        android:id="@+id/tvMchar"
+
+    <RelativeLayout
+        android:id="@+id/rlHeadTitle"
         android:layout_width="match_parent"
-    	android:layout_height="wrap_content"
-    	android:textSize="20sp"
-        android:text=""
-        />
-    <Button 
-        android:id="@+id/btnPlay"
+        android:layout_height="50dp"
+        android:background="@color/white"
+        android:gravity="center" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_10dp"
+            android:text="deatail"
+            android:textSize="@dimen/_20sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlMchar"
         android:layout_width="match_parent"
-    	android:layout_height="wrap_content"
-    	android:text="play"
-        />
-    
-</LinearLayout>
+        android:layout_height="120dp"
+        android:layout_below="@+id/rlHeadTitle"
+        android:layout_marginTop="1dp"
+        android:background="@drawable/acypinyinitem_gradient"
+        android:gravity="center" >
+
+        <TextView
+            android:id="@+id/tvMchar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_10dp"
+            android:text="a"
+            android:textSize="@dimen/_60sp" />
+
+        <TextView
+            android:id="@+id/tvMcharFy"
+            android:layout_width="@dimen/_40dp"
+            android:layout_height="@dimen/_40dp"
+            android:layout_alignBottom="@+id/tvMchar"
+            android:layout_marginBottom="@dimen/_5dp"
+            android:layout_toRightOf="@+id/tvMchar"
+            android:gravity="center"
+            android:text="[:a]"
+            android:textSize="@dimen/_20sp" />
+
+        <ImageView
+            android:id="@+id/ivMcharSounds"
+            android:layout_width="@dimen/_40dp"
+            android:layout_height="@dimen/_40dp"
+            android:layout_alignBottom="@+id/tvMcharFy"
+            android:layout_toRightOf="@+id/tvMcharFy"
+            android:gravity="center"
+            android:padding="@dimen/_4dp"
+            android:src="@drawable/icon_sounds" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlHanziFirst"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_60dp"
+        android:layout_below="@+id/rlMchar"
+        android:layout_marginTop="@dimen/_1dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp"
+        android:background="@drawable/acypinyinitem_gradient"
+        android:gravity="center_vertical" >
+
+        <TextView
+            android:id="@+id/tvHanziFirst"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:padding="@dimen/_10dp"
+            android:layout_marginLeft="@dimen/_20dp"
+            android:text="阿"
+            android:textColor="@color/theme_font_color"
+            android:textSize="@dimen/_30sp" />
+
+        <TextView
+            android:id="@+id/tvHanziFirstPy"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_60dp"
+            android:layout_alignBottom="@+id/tvHanziFirst"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/_5dp"
+            android:gravity="center"
+            android:text="a"
+            android:textColor="@color/theme_font_color"
+            android:textSize="@dimen/_30sp" />
+
+        <ImageView
+            android:id="@+id/ivHanziFirstSounds"
+            android:layout_width="@dimen/_40dp"
+            android:layout_height="@dimen/_40dp"
+            android:layout_alignBottom="@+id/tvHanziFirstPy"
+            android:layout_marginRight="@dimen/_20dp"
+            android:layout_alignParentRight="true"
+            android:gravity="center"
+            android:padding="@dimen/_4dp"
+            android:src="@drawable/icon_sounds" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/rlHanziSecond"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_60dp"
+        android:layout_below="@+id/rlHanziFirst"
+        android:layout_marginTop="@dimen/_1dp"
+        android:layout_marginRight="@dimen/_5dp"
+        android:layout_marginLeft="@dimen/_5dp"
+        android:background="@drawable/acypinyinitem_gradient"
+        android:gravity="center_vertical" >
+
+        <TextView
+            android:id="@+id/tvHanziSecond"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:padding="@dimen/_10dp"
+            android:layout_marginLeft="@dimen/_20dp"
+            android:text="阿"
+            android:textColor="@color/theme_font_color"
+            android:textSize="@dimen/_30sp" />
+
+        <TextView
+            android:id="@+id/tvHanziSecondPy"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_60dp"
+            android:layout_alignBottom="@+id/tvHanziSecond"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/_5dp"
+            android:gravity="center"
+            android:text="a"
+            android:textColor="@color/theme_font_color"
+            android:textSize="@dimen/_30sp" />
+
+        <ImageView
+            android:id="@+id/ivHanziSecondSounds"
+            android:layout_width="@dimen/_40dp"
+            android:layout_height="@dimen/_40dp"
+            android:layout_alignBottom="@+id/tvHanziSecondPy"
+            android:layout_marginRight="@dimen/_20dp"
+            android:layout_alignParentRight="true"
+            android:gravity="center"
+            android:padding="@dimen/_4dp"
+            android:src="@drawable/icon_sounds" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/rlHanziThird"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_60dp"
+        android:layout_below="@+id/rlHanziSecond"
+        android:layout_marginTop="@dimen/_1dp"
+         android:layout_marginRight="@dimen/_5dp"
+        android:layout_marginLeft="@dimen/_5dp"
+        android:background="@drawable/acypinyinitem_gradient"
+        android:gravity="center_vertical" >
+
+        <TextView
+            android:id="@+id/tvHanziThird"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:padding="@dimen/_10dp"
+            android:layout_marginLeft="@dimen/_20dp"
+            android:text="阿"
+            android:textColor="@color/theme_font_color"
+            android:textSize="@dimen/_30sp" />
+
+        <TextView
+            android:id="@+id/tvHanziThirdPy"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_60dp"
+            android:layout_alignBottom="@+id/tvHanziThird"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/_5dp"
+            android:gravity="center"
+            android:text="a"
+            android:textColor="@color/theme_font_color"
+            android:textSize="@dimen/_30sp" />
+
+        <ImageView
+            android:id="@+id/ivHanziThirdSounds"
+            android:layout_width="@dimen/_40dp"
+            android:layout_height="@dimen/_40dp"
+            android:layout_alignBottom="@+id/tvHanziThirdPy"
+            android:layout_marginRight="@dimen/_20dp"
+            android:layout_alignParentRight="true"
+            android:gravity="center"
+            android:padding="@dimen/_4dp"
+            android:src="@drawable/icon_sounds" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/rlHanziForth"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_60dp"
+        android:layout_below="@+id/rlHanziThird"
+        android:layout_marginTop="@dimen/_1dp"
+         android:layout_marginRight="@dimen/_5dp"
+        android:layout_marginLeft="@dimen/_5dp"
+        android:background="@drawable/acypinyinitem_gradient"
+        android:gravity="center_vertical" >
+
+        <TextView
+            android:id="@+id/tvHanziForth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:padding="@dimen/_10dp"
+            android:layout_marginLeft="@dimen/_20dp"
+            android:text="阿"
+            android:textColor="@color/theme_font_color"
+            android:textSize="@dimen/_30sp" />
+
+        <TextView
+            android:id="@+id/tvHanziForthPy"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_60dp"
+            android:layout_alignBottom="@+id/tvHanziForth"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/_5dp"
+            android:gravity="center"
+            android:text="a"
+            android:textColor="@color/theme_font_color"
+            android:textSize="@dimen/_30sp" />
+
+        <ImageView
+            android:id="@+id/ivHanziForthSounds"
+            android:layout_width="@dimen/_40dp"
+            android:layout_height="@dimen/_40dp"
+            android:layout_alignBottom="@+id/tvHanziForthPy"
+            android:layout_marginRight="@dimen/_20dp"
+            android:layout_alignParentRight="true"
+            android:gravity="center"
+            android:padding="@dimen/_4dp"
+            android:src="@drawable/icon_sounds" />
+    </RelativeLayout>
+
+
+</RelativeLayout>

@@ -18,11 +18,13 @@ import com.sdnu.study.myview.MySlidingMenu;
 public class MainActivity extends Activity implements OnClickListener{
 	private MySlidingMenu slidingMenu;
 	private TextView tvRumen;
+	private TextView tvStart;
+	private TextView tvSlideMenu;
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main1);
+        setContentView(R.layout.activity_main);
       //侧滑菜单
     	slidingMenu=new MySlidingMenu(this);
     	slidingMenu.showSlidingMenu();
@@ -32,8 +34,12 @@ public class MainActivity extends Activity implements OnClickListener{
     
     private void init() {
     	tvRumen=(TextView) this.findViewById(R.id.tvPinyinbiao);
+    	tvStart=(TextView) this.findViewById(R.id.tvStart);
+    	tvSlideMenu=(TextView) this.findViewById(R.id.tvSlideMenu);
     	
     	tvRumen.setOnClickListener(this);
+    	tvStart.setOnClickListener(this);
+    	tvSlideMenu.setOnClickListener(this);
     	
 	}
 
@@ -46,6 +52,13 @@ public class MainActivity extends Activity implements OnClickListener{
 			Intent ipinyin=new Intent(MainActivity.this, AcyPinyin.class);
 			MainActivity.this.startActivity(ipinyin);	
 			break;
+		case R.id.tvSlideMenu:
+			slidingMenu.setToggle(true);
+			break;
+		case R.id.tvStart:
+			Intent i=new Intent(MainActivity.this,AcyPinyinGame.class);
+			this.startActivity(i);
+			break;
 
 		default:
 			break;
@@ -53,6 +66,7 @@ public class MainActivity extends Activity implements OnClickListener{
 		
 	}
     
-   
+	
+	
    
 }

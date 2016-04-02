@@ -3,14 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/theme_grey"
+    android:background="#E5E7E6"
     android:orientation="vertical" >
 
     <com.jeremyfeinstein.slidingmenu.lib.SlidingMenu
         android:id="@+id/slidingmenulayout"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:background="@color/theme_white" >
+        android:background="#E5E7E6" >
 
         <RelativeLayout
             android:id="@+id/iv_circle"
@@ -18,7 +18,7 @@
             android:layout_height="120dp"
             android:layout_marginTop="40dp"
             android:layout_weight="1"
-            android:background="@color/theme_white"
+            android:background="#E5E7E6"
             android:gravity="center"
             android:padding="16dp" >
 

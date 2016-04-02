@@ -10,24 +10,41 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.sdnu.study.config.MyConfig;
 import com.sdnu.study.domain.PinyinTableItem;
+import com.sdnu.study.model.Model;
 import com.sdnu.study.myUtils.PullXMLUtils;
 
-public class AcyPinyinItem extends Activity implements OnClickListener{
+public class AcyPinyinItem extends Activity implements OnClickListener {
 
-	private TextView tvMchar;
 	private Intent intent;
 	private List<PinyinTableItem> list;
+	private MediaPlayer player = null;
+
 	private ImageView ivMcharSounds;
-	private MediaPlayer player=null;
+	private TextView tvMchar;
+
+	private TextView tvHanziFirst;
+	private TextView tvHanziFirstPy;
+	private TextView tvHanziSecond;
+	private TextView tvHanziSecondPy;
+	private TextView tvHanziThird;
+	private TextView tvHanziThirdPy;
+	private TextView tvHanziForth;
+	private TextView tvHanziForthPy;
+
+	private ImageView ivHanziFirstSounds;
+	private ImageView ivHanziSecondSounds;
+	private ImageView ivHanziThirdSounds;
+	private ImageView ivHanziForthSounds;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.acypinyinitem_layout1);
+		setContentView(R.layout.acypinyinitem_layout);
 
 		intent = getIntent();
 
@@ -36,29 +53,65 @@ public class AcyPinyinItem extends Activity implements OnClickListener{
 
 	private void init() {
 		tvMchar = (TextView) this.findViewById(R.id.tvMchar);
-		ivMcharSounds= (ImageView) this.findViewById(R.id.ivMcharSounds);
+
+		tvHanziFirst = (TextView) this.findViewById(R.id.tvHanziFirst);
+		tvHanziFirstPy = (TextView) this.findViewById(R.id.tvHanziFirstPy);
+
+		tvHanziSecond = (TextView) this.findViewById(R.id.tvHanziSecond);
+		tvHanziSecondPy = (TextView) this.findViewById(R.id.tvHanziSecondPy);
+
+		tvHanziThird = (TextView) this.findViewById(R.id.tvHanziThird);
+		tvHanziThirdPy = (TextView) this.findViewById(R.id.tvHanziThirdPy);
+
+		tvHanziForth = (TextView) this.findViewById(R.id.tvHanziForth);
+		tvHanziForthPy = (TextView) this.findViewById(R.id.tvHanziForthPy);
+
+		ivMcharSounds = (ImageView) this.findViewById(R.id.ivMcharSounds);
+		ivHanziFirstSounds = (ImageView) this
+				.findViewById(R.id.ivHanziFirstSounds);
+		ivHanziSecondSounds = (ImageView) this
+				.findViewById(R.id.ivHanziSecondSounds);
+		ivHanziThirdSounds = (ImageView) this
+				.findViewById(R.id.ivHanziThirdSounds);
+		ivHanziForthSounds = (ImageView) this
+				.findViewById(R.id.ivHanziForthSounds);
+
 		int pos = intent.getIntExtra("pos", 0);
 		InputStream is = this.getResources().openRawResource(
 				R.raw.res_pinyin_yunmu);
-		
+
 		try {
 			list = PullXMLUtils.parse(is);
 			tvMchar.setText(list.get(pos).getmChar());
-			ivMcharSounds.setOnClickListener(this);
+			tvHanziFirst.setText(list.get(pos).getHanziFirst());
+			tvHanziSecond.setText(list.get(pos).getHanziSecond());
+			tvHanziThird.setText(list.get(pos).getHanziThird());
+			tvHanziForth.setText(list.get(pos).getHanziForth());
+			tvHanziFirstPy.setText(list.get(pos).getHanziFirstPy());
+			tvHanziSecondPy.setText(list.get(pos).getHanziSecondPy());
+			tvHanziThirdPy.setText(list.get(pos).getHanziThirdPy());
+			tvHanziForthPy.setText(list.get(pos).getHanziForthPy());
 			
+			
+			ivMcharSounds.setOnClickListener(this);
+			ivHanziFirstSounds.setOnClickListener(this);
+			ivHanziSecondSounds.setOnClickListener(this);
+			ivHanziThirdSounds.setOnClickListener(this);
+			ivHanziForthSounds.setOnClickListener(this);
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
 	}
-	
+
 	/**
 	 * 播放音频
+	 * 
 	 * @param url
 	 */
-	
-	private void player(final String url){
+
+	private void player(final String url) {
 		new Thread(new Runnable() {
 			@Override
 			public void run() {
@@ -68,21 +121,37 @@ public class AcyPinyinItem extends Activity implements OnClickListener{
 			}
 		}).start();
 	}
-	
+
 	@Override
 	protected void onPause() {
 		super.onPause();
-		if(player!=null){
+		if (player != null) {
 			player.stop();
 		}
 	}
 
 	@Override
 	public void onClick(View v) {
-		
+		String url = null;
 		switch (v.getId()) {
 		case R.id.ivMcharSounds:
-			String url = "http://192.168.88.1/better/images/voice/a1.mp3";
+			url = Model.YINPIN_URL + "a1.mp3";
+			player(url);
+			break;
+		case R.id.ivHanziFirstSounds:
+			url = Model.YINPIN_URL + "a1.mp3";
+			player(url);
+			break;
+		case R.id.ivHanziSecondSounds:
+			url = Model.YINPIN_URL + "a1.mp3";
+			player(url);
+			break;
+		case R.id.ivHanziThirdSounds:
+			url = Model.YINPIN_URL + "a1.mp3";
+			player(url);
+			break;
+		case R.id.ivHanziForthSounds:
+			url = Model.YINPIN_URL + "a1.mp3";
 			player(url);
 			break;
 
@@ -90,6 +159,5 @@ public class AcyPinyinItem extends Activity implements OnClickListener{
 			break;
 		}
 	}
-
 
 }
