@@ -10,6 +10,7 @@
     <dimen name="_30sp">30dp</dimen>
     <dimen name="_10dp">10dp</dimen>
     <dimen name="_10sp">10dp</dimen>
+    <dimen name="_15sp">10dp</dimen>
     <dimen name="_5dp">5dp</dimen>
     <dimen name="_2dp">2dp</dimen>
     <dimen name="_1dp">1dp</dimen>

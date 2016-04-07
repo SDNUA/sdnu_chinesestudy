@@ -9,9 +9,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
 
-import com.sdnu.study.config.MyConfig;
-import com.sdnu.study.domain.PinyinTableItem;
-import com.sdnu.study.myUtils.DBUtils;
+import com.sdnu.study.myUtils.DBReadAssetsUtils;
 import com.sdnu.study.myview.MySlidingMenu;
 
 
@@ -25,6 +23,9 @@ public class MainActivity extends Activity implements OnClickListener{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        DBReadAssetsUtils db=new DBReadAssetsUtils();
+        db.openDatabase(this, "test.db");
+        
       //侧滑菜单
     	slidingMenu=new MySlidingMenu(this);
     	slidingMenu.showSlidingMenu();
@@ -39,8 +40,7 @@ public class MainActivity extends Activity implements OnClickListener{
     	
     	tvRumen.setOnClickListener(this);
     	tvStart.setOnClickListener(this);
-    	tvSlideMenu.setOnClickListener(this);
-    	
+    	tvSlideMenu.setOnClickListener(this); 
 	}
 
 
@@ -56,7 +56,7 @@ public class MainActivity extends Activity implements OnClickListener{
 			slidingMenu.setToggle(true);
 			break;
 		case R.id.tvStart:
-			Intent i=new Intent(MainActivity.this,AcyPinyinGame.class);
+			Intent i=new Intent(MainActivity.this,AcyChujiMain.class);
 			this.startActivity(i);
 			break;
 
