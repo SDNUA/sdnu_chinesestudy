@@ -1,19 +1,21 @@
 package com.sdnu.study.activity;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
-
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.sdnu.study.config.MyConfig;
+import android.widget.Toast;
 import com.sdnu.study.domain.PinyinTableItem;
 import com.sdnu.study.model.Model;
 import com.sdnu.study.myUtils.PullXMLUtils;
@@ -40,6 +42,12 @@ public class AcyPinyinItem extends Activity implements OnClickListener {
 	private ImageView ivHanziSecondSounds;
 	private ImageView ivHanziThirdSounds;
 	private ImageView ivHanziForthSounds;
+
+	private String charDir = null;
+	private String char1 = null;
+	private String char2 = null;
+	private String char3 = null;
+	private String char4 = null;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -77,16 +85,27 @@ public class AcyPinyinItem extends Activity implements OnClickListener {
 				.findViewById(R.id.ivHanziForthSounds);
 
 		int pos = intent.getIntExtra("pos", 0);
-		InputStream is = this.getResources().openRawResource(
-				R.raw.res_pinyin_yunmu);
-
+		int type = intent.getIntExtra("type", 1);
+		InputStream is =null;
+		if(type==1){
+			is= this.getResources().openRawResource(
+					R.raw.res_pinyin_yunmu);
+		}else if(type==2){
+			is= this.getResources().openRawResource(
+				R.raw.res_pinyin_shengmu);
+		}
 		try {
 			list = PullXMLUtils.parse(is);
-			tvMchar.setText(list.get(pos).getmChar());
-			tvHanziFirst.setText(list.get(pos).getHanziFirst());
-			tvHanziSecond.setText(list.get(pos).getHanziSecond());
-			tvHanziThird.setText(list.get(pos).getHanziThird());
-			tvHanziForth.setText(list.get(pos).getHanziForth());
+			charDir=list.get(pos).getmChar();
+			tvMchar.setText(charDir);
+			char1=list.get(pos).getHanziFirst();
+			tvHanziFirst.setText(char1);
+			char2=list.get(pos).getHanziSecond();
+			tvHanziSecond.setText(char2);
+			char3=list.get(pos).getHanziThird();
+			tvHanziThird.setText(char3);
+			char4=list.get(pos).getHanziForth();
+			tvHanziForth.setText(char4);
 			tvHanziFirstPy.setText(list.get(pos).getHanziFirstPy());
 			tvHanziSecondPy.setText(list.get(pos).getHanziSecondPy());
 			tvHanziThirdPy.setText(list.get(pos).getHanziThirdPy());
@@ -112,12 +131,31 @@ public class AcyPinyinItem extends Activity implements OnClickListener {
 	 */
 
 	private void player(final String url) {
+		Message msg=new Message();
 		new Thread(new Runnable() {
 			@Override
 			public void run() {
 				Uri uri = Uri.parse(url);
-				player = MediaPlayer.create(AcyPinyinItem.this, uri);
-				player.start();
+				//player = MediaPlayer.create(AcyPinyinItem.this, uri);
+				Message msg=new Message();
+				try {
+					player= MediaPlayer.create(getApplicationContext(), uri);
+					//player.setDataSource(getApplicationContext(), uri);
+					player.start();
+				} catch (IllegalArgumentException e) {
+					e.printStackTrace();
+					msg.what=404;
+					msg.obj="网络异常，音频播放失败1";
+				} catch (SecurityException e) {
+					e.printStackTrace();
+					msg.what=404;
+					msg.obj="网络异常，音频播放失败2";
+				} catch (IllegalStateException e) {
+					e.printStackTrace();
+					msg.what=404;
+					msg.obj="网络异常，音频播放失败3";
+				}
+				hand.sendMessage(msg);
 			}
 		}).start();
 	}
@@ -135,23 +173,23 @@ public class AcyPinyinItem extends Activity implements OnClickListener {
 		String url = null;
 		switch (v.getId()) {
 		case R.id.ivMcharSounds:
-			url = Model.YINPIN_URL + "a1.mp3";
+			url = Model.YINPIN_URL + charDir + "/" + char1 + ".wav";
 			player(url);
 			break;
 		case R.id.ivHanziFirstSounds:
-			url = Model.YINPIN_URL + "a1.mp3";
+			url = Model.YINPIN_URL + charDir + "/" + char1 + ".wav";
 			player(url);
 			break;
 		case R.id.ivHanziSecondSounds:
-			url = Model.YINPIN_URL + "a1.mp3";
+			url = Model.YINPIN_URL + charDir + "/" + char2 + ".wav";
 			player(url);
 			break;
 		case R.id.ivHanziThirdSounds:
-			url = Model.YINPIN_URL + "a1.mp3";
+			url = Model.YINPIN_URL + charDir + "/" + char3 + ".wav";
 			player(url);
 			break;
 		case R.id.ivHanziForthSounds:
-			url = Model.YINPIN_URL + "a1.mp3";
+			url = Model.YINPIN_URL + charDir + "/" + char4 + ".wav";
 			player(url);
 			break;
 
@@ -159,5 +197,14 @@ public class AcyPinyinItem extends Activity implements OnClickListener {
 			break;
 		}
 	}
-
+	
+	Handler hand=new Handler(){
+		@SuppressLint("ShowToast")
+		public void handleMessage(android.os.Message msg) {
+			if(msg.what==404){
+				Toast.makeText(AcyPinyinItem.this, msg.obj.toString(), Toast.LENGTH_SHORT).show();
+			}
+			
+		};
+	};
 }

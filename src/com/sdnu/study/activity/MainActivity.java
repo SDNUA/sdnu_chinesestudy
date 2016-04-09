@@ -23,8 +23,6 @@ public class MainActivity extends Activity implements OnClickListener{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        DBReadAssetsUtils db=new DBReadAssetsUtils();
-        db.openDatabase(this, "test.db");
         
       //侧滑菜单
     	slidingMenu=new MySlidingMenu(this);

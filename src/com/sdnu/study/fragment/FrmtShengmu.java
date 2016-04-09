@@ -70,6 +70,7 @@ gv=(GridView) view.findViewById(R.id.glPinyinbiao);
 			long id) {
 		Intent i=new Intent(getContext(), AcyPinyinItem.class);
 		i.putExtra("pos", position);
+		i.putExtra("type", 2);
 		getContext().startActivity(i);
 
 		

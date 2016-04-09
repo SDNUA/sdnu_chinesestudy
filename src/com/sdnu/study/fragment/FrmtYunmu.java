@@ -71,6 +71,7 @@ public class FrmtYunmu extends Fragment implements OnItemClickListener{
 			long id) {
 			Intent i=new Intent(getContext(), AcyPinyinItem.class);
 			i.putExtra("pos", position);
+			i.putExtra("type", 1);
 			getContext().startActivity(i);
 
 	}
