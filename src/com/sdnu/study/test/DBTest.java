@@ -23,7 +23,7 @@ public class DBTest extends AndroidTestCase {
 	}
 	public void testFind() throws Exception{
 		
-		DBUtils utils=DBUtils.getInstance(getContext());
+		/*DBUtils utils=DBUtils.getInstance(getContext());
 		utils.open();
 		
 		List<PinyinTableItem> list=utils.findPinYinTableItem();
@@ -33,7 +33,7 @@ public class DBTest extends AndroidTestCase {
 			System.out.println("-------------");
 		}
 		
-		utils.close();
+		utils.close();*/
 		
 	}
 

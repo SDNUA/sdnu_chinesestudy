@@ -1,25 +1,29 @@
 package com.sdnu.study.myUtils;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.sdnu.study.db.DBHelper;
+import com.sdnu.study.domain.NewWord;
 import com.sdnu.study.domain.PinyinTableItem;
+import com.sdnu.study.domain.ShortDialogItem;
 
 public class DBUtils {
 	
 	// 默认数据库  
-    private static final String DB_NAME = "asc.db";  
+    private static final String DB_NAME = "test.db";  
     // 数据库版本  
     private static final int DB_VERSION = 1;  
   
     // 执行open()打开数据库时，保存返回的数据库对象  
     private SQLiteDatabase mSQLiteDatabase = null;  
-  
+    AssetsDatabaseManager mg=null;
     // 由SQLiteOpenHelper继承过来  
     private DBHelper mDatabaseHelper=null;  
   
@@ -56,6 +60,11 @@ public class DBUtils {
         mDatabaseHelper = new DBHelper(mContext);  
         mSQLiteDatabase = mDatabaseHelper.getWritableDatabase();  
     }  
+    public void openMyDb(String dbName) {  
+    	AssetsDatabaseManager.initManager(mContext);
+		mg = AssetsDatabaseManager.getManager();
+		mSQLiteDatabase=mg.getDatabase(dbName);  
+    }  
   
     /** 
      * 关闭数据库 
@@ -67,6 +76,14 @@ public class DBUtils {
         if (null != cursor) {  
             cursor.close();  
         }  
+    }  
+    public void close(String dbfile) {  
+    	if(mg!=null){
+    		mg.closeDatabase(dbfile);
+    	}
+    	if (null != cursor) {  
+    		cursor.close();  
+    	}  
     }  
   
     /**
@@ -94,27 +111,25 @@ public class DBUtils {
             mSQLiteDatabase.execSQL(sql);;  
         
     }
-    
-    /**
-     * 
-     * @param tableName
-     */
-    
-    public List<PinyinTableItem> findPinYinTableItem() {  
-        
-    	List<PinyinTableItem> list=new ArrayList<PinyinTableItem>();
-    	String sql="select * from pinyin";
-    	cursor=mSQLiteDatabase.rawQuery(sql,null);
-    	while (cursor.moveToNext()) {
-    		PinyinTableItem item=new PinyinTableItem();
-//    		item.setmChar(cursor.getString(cursor.getColumnIndex("mchar")));
-//    		item.setHanzi(cursor.getString(cursor.getColumnIndex("hanzi")));
-//    		item.setPinyin(cursor.getString(cursor.getColumnIndex("pinyin")));
-    		list.add(item);
-		}
-    return list;
-}
+      
+
    
+    public List<ShortDialogItem> getDialogData(int key) {
+		
+		List<ShortDialogItem> list=new ArrayList<ShortDialogItem>();
+		ShortDialogItem sdi=null;
+		Cursor cursor = mSQLiteDatabase.rawQuery("select * from tb_dialog where dialog_num="+key, null);
+		while (cursor.moveToNext()) {
+			sdi=new ShortDialogItem();
+			sdi.setChinese(cursor.getString(cursor.getColumnIndex("dialog_chinese")));
+			sdi.setPinyin(cursor.getString(cursor.getColumnIndex("dialog_pinyin")));
+			list.add(sdi);
+		}
+		if(cursor!=	null){
+			cursor.close();
+		}
+		return list;
+	}
     
       
     /** 
@@ -124,6 +139,44 @@ public class DBUtils {
      */  
     public void executeSql(String sql) {  
         mSQLiteDatabase.execSQL(sql);  
-    }  
+    } 
+    
+    public List<Map<String, String>> getCourseTitle() {
+		
+		List<Map<String, String>> data = new ArrayList<Map<String, String>>();
+		Map<String, String> map = null;
+		Cursor cursor = mSQLiteDatabase.rawQuery("select * from tb_courses", null);
+		while (cursor.moveToNext()) {
+			map = new HashMap<String, String>();
+			StringBuffer tiltle = new StringBuffer();
+			tiltle.append("第"
+					+ cursor.getString(cursor.getColumnIndex("course_no"))
+					+ "课\t");
+			tiltle.append(cursor.getString(cursor
+					.getColumnIndex("course_chinese_title")));
+			map.put("title", tiltle.toString());
+			data.add(map);
+		}
+	
+		return data;
+	}
+
+	public List<NewWord> getWordsData(int key) {
+		List<NewWord> list=new ArrayList<NewWord>();
+		NewWord nw=null;
+		Cursor cursor = mSQLiteDatabase.rawQuery("select * from tb_words where course_num="+key, null);
+		while (cursor.moveToNext()) {
+			nw=new NewWord();
+			nw.setHanChar(cursor.getString(cursor.getColumnIndex("word_han")));
+			nw.setEnglishChar(cursor.getString(cursor.getColumnIndex("word_en")));
+			nw.setPinyinChar(cursor.getString(cursor.getColumnIndex("word_py")));
+			nw.setFayinChar(cursor.getString(cursor.getColumnIndex("word_fy")));
+			list.add(nw);
+		}
+		
+		return list;
+	}
+    
+    
   
 } 

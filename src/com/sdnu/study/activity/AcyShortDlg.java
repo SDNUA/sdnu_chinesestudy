@@ -1,5 +1,6 @@
 package com.sdnu.study.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -17,6 +18,7 @@ public class AcyShortDlg extends FragmentActivity  implements OnClickListener {
 	private TextView tvDlg;
 	private TextView tvExercise;
 	private TextView tvNewWords;
+	private TextView tvTitle;
 	
 	//fragment
 	private FrmtShortDlg frmtshortdlg;
@@ -35,11 +37,15 @@ public class AcyShortDlg extends FragmentActivity  implements OnClickListener {
 		tvDlg=(TextView) this.findViewById(R.id.tvShortDlg);
 		tvNewWords=(TextView) this.findViewById(R.id.tvNewWords);
 		tvExercise=(TextView) this.findViewById(R.id.tvExercise);
+		tvTitle=(TextView) this.findViewById(R.id.tvTitle);
 		
 		tvDlg.setOnClickListener(this);
 		tvNewWords.setOnClickListener(this);
 		tvExercise.setOnClickListener(this);
 		
+		Intent intent=getIntent();
+		String title=intent.getStringExtra("title");
+		tvTitle.setText(title);
 		selectFragment(R.id.tvShortDlg);
 	}
 	

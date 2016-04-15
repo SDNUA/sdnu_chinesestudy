@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
 
-import com.sdnu.study.myUtils.DBReadAssetsUtils;
 import com.sdnu.study.myview.MySlidingMenu;
 
 

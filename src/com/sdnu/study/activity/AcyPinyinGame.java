@@ -60,7 +60,11 @@ public class AcyPinyinGame extends Activity implements OnItemClickListener {
 		player(url);
 		gridview.setOnItemClickListener(this);
 	}
-	
+	/**
+	 * 产生随机数
+	 * @param len
+	 * @return
+	 */
 	private int getRandomNum(int len){
 		double num=Math.random();//0~1
 		int rand=(int) Math.floor(len*num);

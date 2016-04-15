@@ -3,6 +3,7 @@ package com.sdnu.study.activity;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
@@ -16,8 +17,10 @@ import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.sdnu.study.domain.PinyinTableItem;
 import com.sdnu.study.model.Model;
+import com.sdnu.study.myUtils.NetStateUtils;
 import com.sdnu.study.myUtils.PullXMLUtils;
 
 public class AcyPinyinItem extends Activity implements OnClickListener {
@@ -86,32 +89,29 @@ public class AcyPinyinItem extends Activity implements OnClickListener {
 
 		int pos = intent.getIntExtra("pos", 0);
 		int type = intent.getIntExtra("type", 1);
-		InputStream is =null;
-		if(type==1){
-			is= this.getResources().openRawResource(
-					R.raw.res_pinyin_yunmu);
-		}else if(type==2){
-			is= this.getResources().openRawResource(
-				R.raw.res_pinyin_shengmu);
+		InputStream is = null;
+		if (type == 1) {
+			is = this.getResources().openRawResource(R.raw.res_pinyin_yunmu);
+		} else if (type == 2) {
+			is = this.getResources().openRawResource(R.raw.res_pinyin_shengmu);
 		}
 		try {
 			list = PullXMLUtils.parse(is);
-			charDir=list.get(pos).getmChar();
+			charDir = list.get(pos).getmChar();
 			tvMchar.setText(charDir);
-			char1=list.get(pos).getHanziFirst();
+			char1 = list.get(pos).getHanziFirst();
 			tvHanziFirst.setText(char1);
-			char2=list.get(pos).getHanziSecond();
+			char2 = list.get(pos).getHanziSecond();
 			tvHanziSecond.setText(char2);
-			char3=list.get(pos).getHanziThird();
+			char3 = list.get(pos).getHanziThird();
 			tvHanziThird.setText(char3);
-			char4=list.get(pos).getHanziForth();
+			char4 = list.get(pos).getHanziForth();
 			tvHanziForth.setText(char4);
 			tvHanziFirstPy.setText(list.get(pos).getHanziFirstPy());
 			tvHanziSecondPy.setText(list.get(pos).getHanziSecondPy());
 			tvHanziThirdPy.setText(list.get(pos).getHanziThirdPy());
 			tvHanziForthPy.setText(list.get(pos).getHanziForthPy());
-			
-			
+
 			ivMcharSounds.setOnClickListener(this);
 			ivHanziFirstSounds.setOnClickListener(this);
 			ivHanziSecondSounds.setOnClickListener(this);
@@ -131,31 +131,22 @@ public class AcyPinyinItem extends Activity implements OnClickListener {
 	 */
 
 	private void player(final String url) {
-		Message msg=new Message();
 		new Thread(new Runnable() {
 			@Override
 			public void run() {
 				Uri uri = Uri.parse(url);
-				//player = MediaPlayer.create(AcyPinyinItem.this, uri);
-				Message msg=new Message();
-				try {
-					player= MediaPlayer.create(getApplicationContext(), uri);
-					//player.setDataSource(getApplicationContext(), uri);
+				boolean flag = NetStateUtils
+						.isNetworkAvailable(AcyPinyinItem.this);
+				if (flag) {
+					player = MediaPlayer.create(getApplicationContext(), uri);
 					player.start();
-				} catch (IllegalArgumentException e) {
-					e.printStackTrace();
-					msg.what=404;
-					msg.obj="网络异常，音频播放失败1";
-				} catch (SecurityException e) {
-					e.printStackTrace();
-					msg.what=404;
-					msg.obj="网络异常，音频播放失败2";
-				} catch (IllegalStateException e) {
-					e.printStackTrace();
-					msg.what=404;
-					msg.obj="网络异常，音频播放失败3";
+				} else {
+					Message msg = new Message();
+					msg.what = 404;
+					msg.obj = "网络异常";
+					hand.sendMessage(msg);
 				}
-				hand.sendMessage(msg);
+
 			}
 		}).start();
 	}
@@ -197,14 +188,15 @@ public class AcyPinyinItem extends Activity implements OnClickListener {
 			break;
 		}
 	}
-	
-	Handler hand=new Handler(){
+
+	Handler hand = new Handler() {
 		@SuppressLint("ShowToast")
 		public void handleMessage(android.os.Message msg) {
-			if(msg.what==404){
-				Toast.makeText(AcyPinyinItem.this, msg.obj.toString(), Toast.LENGTH_SHORT).show();
+			if (msg.what == 404) {
+				Toast.makeText(AcyPinyinItem.this, msg.obj.toString(),
+						Toast.LENGTH_SHORT).show();
 			}
-			
+
 		};
 	};
 }

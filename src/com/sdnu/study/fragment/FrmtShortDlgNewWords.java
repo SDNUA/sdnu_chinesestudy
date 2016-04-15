@@ -22,8 +22,10 @@ import com.sdnu.study.activity.AcyShortDlg;
 import com.sdnu.study.activity.R;
 import com.sdnu.study.adapter.DlgListAdapter;
 import com.sdnu.study.adapter.NewWordAdapter;
+import com.sdnu.study.config.MyConfig;
 import com.sdnu.study.domain.NewWord;
 import com.sdnu.study.domain.ShortDialogItem;
+import com.sdnu.study.myUtils.DBUtils;
 
 public class FrmtShortDlgNewWords extends Fragment {
 	private View view=null;
@@ -39,21 +41,17 @@ public class FrmtShortDlgNewWords extends Fragment {
 	}
 	private void init() {
 		lv=(ListView) view.findViewById(R.id.lvNewWords);
-		List<NewWord> list=getData();
+		Intent intent=getActivity().getIntent();
+		int key=intent.getIntExtra("key", 1);
+		DBUtils dbUtil=DBUtils.getInstance(context);
+		dbUtil.openMyDb(MyConfig.DB_NAME);
+		List<NewWord> list=dbUtil.getWordsData(key);
+		dbUtil.close(MyConfig.DB_NAME);
 		NewWordAdapter nwadapter=new NewWordAdapter(getContext(), list);
 		lv.setAdapter(nwadapter);
 	}
 
 	
-	private List<NewWord> getData() {
-		List<NewWord> list=new ArrayList<NewWord>();
-		NewWord nw=new NewWord("你","ni","you");
-		list.add(nw);
-		nw=new NewWord("好","hao","good");
-		list.add(nw);
-		nw=new NewWord("我","wo","I");
-		list.add(nw);
-		return list;
-	}
+	
 
 }
