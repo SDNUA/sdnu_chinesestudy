@@ -5,6 +5,7 @@ import java.util.Map;
 
 import com.sdnu.study.activity.R;
 import com.sdnu.study.domain.ShortDialogItem;
+import com.sdnu.study.interfaces.IOnItemOnclick;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -19,10 +20,11 @@ public class DlgListAdapter extends BaseAdapter {
 	private List<ShortDialogItem> list;
 	private int TYPE_0 = 0;
 	private int TYPE_1 = 1;
-
-	public DlgListAdapter(Context context, List<ShortDialogItem> list) {
+	IOnItemOnclick ionClick;
+	public DlgListAdapter(Context context, List<ShortDialogItem> list,IOnItemOnclick ionClick) {
 		this.mInflater = LayoutInflater.from(context);
 		this.list = list;
+		this.ionClick=ionClick;
 
 	}
 
@@ -97,12 +99,18 @@ public class DlgListAdapter extends BaseAdapter {
 			h1.dlgtext.setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View v) {
-					System.out.println("1111111"+position);
+					ionClick.onclick(position);
 				}
 			});
 		}else{
 			sdt=list.get(position);
 			h2.dlgtext.setText(sdt.getChinese()+"\n"+sdt.getPinyin());
+			h2.dlgtext.setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					ionClick.onclick(position);
+				}
+			});
 		}
 		
 		

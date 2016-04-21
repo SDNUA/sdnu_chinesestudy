@@ -53,7 +53,7 @@ public class MainActivity extends Activity implements OnClickListener {
 			slidingMenu.setToggle(true);
 			break;
 		case R.id.tvStart:
-			Intent i = new Intent(MainActivity.this, AcyPinyinGame.class);
+			Intent i = new Intent(MainActivity.this, AcyChujiMain.class);
 			this.startActivity(i);
 			break;
 
