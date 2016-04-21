@@ -8,13 +8,15 @@ import android.app.Activity;
 import android.content.Intent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.sdnu.study.activity.AcyLogin;
-import com.sdnu.study.activity.MainActivity;
+import com.sdnu.study.activity.AcyUpdate;
 import com.sdnu.study.activity.R;
 import com.sdnu.study.config.MyConfig;
 
@@ -24,6 +26,7 @@ public class MySlidingMenu {
 	private SlidingMenu slidingMenu;
 	private ListView lv;
 	private TextView tvUserName;
+	//private MainActivity mactivity=new MainActivity();
 	
 	public MySlidingMenu(Activity activity) {
 		this.activity = activity;
@@ -61,8 +64,30 @@ public class MySlidingMenu {
 				}
 			});
     	}
+		lv.setOnItemClickListener(new OnItemClickListener() {
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+				onClickItem(position);
+			}
+		});
 		
-		
+	}
+	
+
+	private void onClickItem(int position) {
+		switch (position) {
+		case 3:
+			//activity.loadVersionData(Model.VERSION_URL);
+			Intent i = new Intent(activity,
+					AcyUpdate.class);
+			activity.startActivity(i);
+			setToggle(false);
+			break;
+
+		default:
+			break;
+		}
 	}
 
 	public void setToggle(boolean flag) {
@@ -87,7 +112,7 @@ public class MySlidingMenu {
 		list.add(map);
 		
 		map=new HashMap<String, String>();
-		map.put("tvitem", "我的主页");
+		map.put("tvitem", "更新");
 		list.add(map);
 		 
 		 

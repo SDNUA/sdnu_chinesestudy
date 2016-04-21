@@ -1,14 +1,17 @@
 package com.sdnu.study.myUtils;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
 
 import android.util.Xml;
 
 import com.sdnu.study.domain.PinyinTableItem;
+import com.sdnu.study.domain.Version;
 
 public class PullXMLUtils {
 
@@ -20,6 +23,7 @@ public class PullXMLUtils {
 		XmlPullParser parser = Xml.newPullParser();
 		// 解析文件输入流
 		parser.setInput(is, "utf-8");
+
 		// 产生第一个事件
 		int eventType = parser.getEventType();
 
@@ -84,7 +88,7 @@ public class PullXMLUtils {
 					if (name.equals("hanzi_4_py")) {
 						item.setHanziForthPy(parser.nextText());
 					}
-					
+
 				}
 				break;
 
@@ -93,7 +97,7 @@ public class PullXMLUtils {
 				if (item != null) {
 					if (parser.getName().equals("item")) {
 						list.add(item);
-						item=null;
+						item = null;
 					}
 				}
 				break;
@@ -107,4 +111,36 @@ public class PullXMLUtils {
 		return list;
 	}
 
+	public static Version parseVersion(InputStream is)
+			throws XmlPullParserException, NumberFormatException, IOException {
+		Version v = null;
+		XmlPullParser parser = Xml.newPullParser();
+		// 解析文件输入流
+		parser.setInput(is, "utf-8");
+		// 产生第一个事件
+		int eventType = parser.getEventType();
+		while (eventType != XmlPullParser.END_DOCUMENT) {
+			if (XmlPullParser.START_DOCUMENT == eventType) {
+				v = new Version();
+			}
+			if (XmlPullParser.START_TAG == eventType) {
+				String name = parser.getName();
+				if (name != null) {
+					if (name.equals("name")) {
+						v.setName(parser.nextText());
+					}
+					if (name.equals("version")) {
+						int code = Integer
+								.parseInt(parser.getAttributeValue(0));
+						v.setVersionCode(code);
+						v.setVersionMsg(parser.nextText());
+					}
+				}
+			}
+			eventType = parser.next();
+		}
+		System.out.println(v.toString());
+		return v;
+
+	}
 }

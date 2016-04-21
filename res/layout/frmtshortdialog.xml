@@ -3,24 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-<!-- 
-    <RelativeLayout
-        android:id="@+id/rl_layout"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/mmtitle_bg"
-        android:orientation="vertical" >
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="geniuseoe2012"
-            android:textColor="#ffffff"
-            android:textSize="20.0sp" />
-    </RelativeLayout>
-android:layout_below="@id/rl_layout"
- -->
     <ListView
         android:id="@+id/lvDlgList"
         android:layout_width="fill_parent"

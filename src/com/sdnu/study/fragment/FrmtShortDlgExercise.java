@@ -15,7 +15,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,6 +22,7 @@ import com.sdnu.study.activity.R;
 import com.sdnu.study.config.MyConfig;
 import com.sdnu.study.domain.ShortDialogItem;
 import com.sdnu.study.myUtils.DBUtils;
+import com.sdnu.study.myview.FixGridLayout;
 
 public class FrmtShortDlgExercise extends Fragment {
 	private View view = null;
@@ -31,7 +31,7 @@ public class FrmtShortDlgExercise extends Fragment {
 	private Button btnReset;
 	private TextView tvPinyinSentence;
 	private TextView tvHanSentence;
-	private LinearLayout llWords;// 连词成句
+	private FixGridLayout llWords;// 连词成句
 	private StringBuffer sb = null;
 	private String rightSen = null;
 	private int len = 0;
@@ -59,10 +59,10 @@ public class FrmtShortDlgExercise extends Fragment {
 
 		tvPinyinSentence = (TextView) view.findViewById(R.id.tvPinyinSentence);
 		tvHanSentence = (TextView) view.findViewById(R.id.tvHanSentence);
-		llWords = (LinearLayout) view.findViewById(R.id.llWords);
-		//llChoices = (LinearLayout) view.findViewById(R.id.llChoices);
+		llWords = (FixGridLayout) view.findViewById(R.id.llWords);
+		llWords.setmCellHeight(dip2px(getContext(),50));  
+		llWords.setmCellWidth(dip2px(getContext(),50)); 
 		btnReset = (Button) view.findViewById(R.id.btnReset);
-		//btnNext = (Button) view.findViewById(R.id.btnNext);
 		btnReset.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -83,7 +83,6 @@ public class FrmtShortDlgExercise extends Fragment {
 		dbUtil.openMyDb(MyConfig.DB_NAME);
 		dataDlg = dbUtil.getDialogData(key);
 		size = dataDlg.size();
-		//dataWords = dbUtil.getWordsData(key);
 		dbUtil.close(MyConfig.DB_NAME);
 
 	}
@@ -108,8 +107,8 @@ public class FrmtShortDlgExercise extends Fragment {
 			reset(num);
 		}else{
 			Toast.makeText(view.getContext(), "完成了练习", 1).show();
-			FrmtShortDlgWordsExercise frmt=new FrmtShortDlgWordsExercise();
-			switchContent(this, frmt);
+//			FrmtShortDlgWordsExercise frmt=new FrmtShortDlgWordsExercise();
+//			switchContent(this, frmt);
 		}
 	}
 	/**
@@ -134,9 +133,8 @@ public class FrmtShortDlgExercise extends Fragment {
 		tvPinyinSentence.setText(strPy);
 		
 		rightSen = dataDlg.get(loc).getChinese();
-		
-		rightSen =rightSen.substring(0,rightSen.length()-1);
-		System.out.println(rightSen);
+		//rightSen =rightSen.substring(0,rightSen.length()-1);
+		//System.out.println(rightSen);
 		Character[] words = getWords(rightSen);
 		len = words.length;
 		if (llWords != null) {
@@ -248,5 +246,10 @@ public class FrmtShortDlgExercise extends Fragment {
 		}
 		return out;
 	}
+	
+	 public int dip2px(Context context, float dpValue) {
+		  final float scale = context.getResources().getDisplayMetrics().density;
+		  return (int) (dpValue * scale + 0.5f);
+		 } 
 
 }

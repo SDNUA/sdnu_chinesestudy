@@ -9,6 +9,7 @@ import com.sdnu.study.domain.ShortDialogItem;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
@@ -61,7 +62,7 @@ public class DlgListAdapter extends BaseAdapter {
 	}
 
 	@Override
-	public View getView(int position, View convertView, ViewGroup parent) {
+	public View getView(final int position, View convertView, ViewGroup parent) {
 
 		int type = getItemViewType(position);
 		Holder h1 = null;
@@ -93,10 +94,18 @@ public class DlgListAdapter extends BaseAdapter {
 		if(type == TYPE_0){
 			sdt=list.get(position);
 			h1.dlgtext.setText(sdt.getChinese()+"\n"+sdt.getPinyin());
+			h1.dlgtext.setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					System.out.println("1111111"+position);
+				}
+			});
 		}else{
 			sdt=list.get(position);
 			h2.dlgtext.setText(sdt.getChinese()+"\n"+sdt.getPinyin());
 		}
+		
+		
 		return convertView;
 	}
 

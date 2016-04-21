@@ -1,40 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="@dimen/_70dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginTop="@dimen/_2dp"
+    android:background="@color/white"
     android:gravity="center"
     android:orientation="vertical" >
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_60dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginTop="@dimen/_1dp"
-        android:background="@drawable/acypinyinitem_gradient"
+        android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:orientation="horizontal" >
 
         <TextView
             android:id="@+id/tvHanziFirst"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_marginLeft="@dimen/_10dp"
             android:gravity="center"
-            android:padding="@dimen/_10dp"
+            android:padding="@dimen/_4dp"
             android:text="你"
             android:textColor="@color/theme_font_color"
             android:textSize="@dimen/_20sp" />
 
         <TextView
             android:id="@+id/tvHanziFirstPy"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/_60dp"
-            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_10dp"
             android:gravity="center"
-            android:text="ni"
+            android:padding="@dimen/_4dp"
+            android:text="[ni]"
             android:textColor="@color/theme_font_color"
-            android:textSize="@dimen/_25sp" />
+            android:textSize="@dimen/_18sp" />
 
         <ImageView
             android:id="@+id/ivHanziFirstSounds"
@@ -44,16 +45,25 @@
             android:gravity="center"
             android:padding="@dimen/_4dp"
             android:src="@drawable/icon_sounds" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
 
         <TextView
             android:id="@+id/tvEnglish"
             android:layout_width="0dp"
-            android:layout_height="@dimen/_60dp"
+            android:layout_height="@dimen/_30dp"
             android:layout_weight="1"
-            android:gravity="center"
-            android:text="you"
+            android:gravity="left"
+             android:layout_marginLeft="@dimen/_10dp"
+            android:padding="@dimen/_4dp"
+            android:text="youffffffffff"
             android:textColor="@color/theme_font_color"
-            android:textSize="@dimen/_20sp" />
+            android:textSize="@dimen/_16sp" />
     </LinearLayout>
 
 </LinearLayout>

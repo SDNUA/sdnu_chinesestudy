@@ -1,7 +1,7 @@
 package com.sdnu.study.domain;
 
 public class NewWord {
-	
+	private Integer id;
 	private String hanChar;
 	private String pinyinChar;
 	private String englishChar;
@@ -62,6 +62,18 @@ public class NewWord {
 	 */
 	public void setFayinChar(String fayinChar) {
 		this.fayinChar = fayinChar;
+	}
+	/**
+	 * @return the id
+	 */
+	public Integer getId() {
+		return id;
+	}
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 }

@@ -1,9 +1,6 @@
 package com.sdnu.study.fragment;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,19 +9,12 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.GridView;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
 
-import com.sdnu.study.activity.AcyShortDlg;
 import com.sdnu.study.activity.R;
-import com.sdnu.study.adapter.DlgListAdapter;
 import com.sdnu.study.adapter.NewWordAdapter;
 import com.sdnu.study.config.MyConfig;
 import com.sdnu.study.domain.NewWord;
-import com.sdnu.study.domain.ShortDialogItem;
 import com.sdnu.study.myUtils.DBUtils;
 
 public class FrmtShortDlgNewWords extends Fragment {

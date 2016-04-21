@@ -2,9 +2,11 @@ package com.sdnu.study.model;
 
 public class Model {
 	
-	public static final String HTTPURL="http://172.27.24.3:8888/app/";
-	//http://172.27.24.3:8888/app/src/yunmu/a/
-	public static String YINPIN_URL = "http://172.27.24.3:8888/app/src/pinyinyiinpin/";
-	
-	public static final String VERSION_URL = "version.json?";
+	public static final String SERVER_IP="http://172.27.24.3:8888/app/";
+	//public static final String HTTPURL="http://172.26.18.31/app/";
+	//public static final String SERVER_IP="http://172.26.18.31/app/";
+	public static String YINPIN_URL = SERVER_IP+"src/pinyinaudio/";
+
+	public static final String SERVER_ADDRESS=SERVER_IP+"downloadFile/index.php";//软件更新包地址
+	public static final String UPDATESOFTADDRESS=SERVER_IP+"downloadFile/update_pakage/Better.apk";//软件更新包地址
 }

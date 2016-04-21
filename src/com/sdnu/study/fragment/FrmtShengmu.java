@@ -5,11 +5,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import com.sdnu.study.activity.AcyPinyinItem;
-import com.sdnu.study.activity.R;
-import com.sdnu.study.domain.PinyinTableItem;
-import com.sdnu.study.myUtils.PullXMLUtils;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -17,9 +12,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
 import android.widget.SimpleAdapter;
-import android.widget.AdapterView.OnItemClickListener;
+
+import com.sdnu.study.activity.AcyPinyinItem;
+import com.sdnu.study.activity.R;
+import com.sdnu.study.domain.PinyinTableItem;
+import com.sdnu.study.myUtils.PullXMLUtils;
 
 public class FrmtShengmu extends Fragment  implements OnItemClickListener{
 	

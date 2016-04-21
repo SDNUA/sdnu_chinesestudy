@@ -45,6 +45,7 @@ public class HttpPostThread implements Runnable {
 			result = myGet.doPost(url, img, value);
 		}
 		msg.what = 200;
+		System.out.println(result);
 		msg.obj = result;
 		// 给主ui发送消息传递数据
 		hand.sendMessage(msg);

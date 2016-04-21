@@ -42,6 +42,8 @@
         </activity>
         <activity android:name="com.sdnu.study.activity.AcyChujiMain">
         </activity>
+        <activity android:name="com.sdnu.study.activity.AcyUpdate">
+        </activity>
     </application>
 
 </manifest>

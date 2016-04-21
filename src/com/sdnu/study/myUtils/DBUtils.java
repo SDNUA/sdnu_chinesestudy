@@ -10,6 +10,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.sdnu.study.db.DBHelper;
+import com.sdnu.study.domain.ExerciseAnswerItem;
 import com.sdnu.study.domain.NewWord;
 import com.sdnu.study.domain.PinyinTableItem;
 import com.sdnu.study.domain.ShortDialogItem;
@@ -145,35 +146,63 @@ public class DBUtils {
 		
 		List<Map<String, String>> data = new ArrayList<Map<String, String>>();
 		Map<String, String> map = null;
-		Cursor cursor = mSQLiteDatabase.rawQuery("select * from tb_courses", null);
+		Cursor cursor = mSQLiteDatabase.rawQuery("select * from tb_title", null);
 		while (cursor.moveToNext()) {
 			map = new HashMap<String, String>();
 			StringBuffer tiltle = new StringBuffer();
 			tiltle.append("第"
-					+ cursor.getString(cursor.getColumnIndex("course_no"))
+					+ cursor.getString(cursor.getColumnIndex("class_no"))
 					+ "课\t");
 			tiltle.append(cursor.getString(cursor
-					.getColumnIndex("course_chinese_title")));
+					.getColumnIndex("class_chinese_title")));
 			map.put("title", tiltle.toString());
 			data.add(map);
 		}
-	
+		if(cursor!=	null){
+			cursor.close();
+		}
 		return data;
 	}
 
 	public List<NewWord> getWordsData(int key) {
 		List<NewWord> list=new ArrayList<NewWord>();
 		NewWord nw=null;
-		Cursor cursor = mSQLiteDatabase.rawQuery("select * from tb_words where course_num="+key, null);
+		Cursor cursor = mSQLiteDatabase.rawQuery("select * from tb_words where class_no="+key, null);
 		while (cursor.moveToNext()) {
 			nw=new NewWord();
-			nw.setHanChar(cursor.getString(cursor.getColumnIndex("word_han")));
-			nw.setEnglishChar(cursor.getString(cursor.getColumnIndex("word_en")));
-			nw.setPinyinChar(cursor.getString(cursor.getColumnIndex("word_py")));
-			nw.setFayinChar(cursor.getString(cursor.getColumnIndex("word_fy")));
+			nw.setHanChar(cursor.getString(cursor.getColumnIndex("word_chinese")));
+			nw.setEnglishChar(cursor.getString(cursor.getColumnIndex("word_english")));
+			nw.setPinyinChar(cursor.getString(cursor.getColumnIndex("word_pinyin")));
 			list.add(nw);
 		}
+		if(cursor!=	null){
+			cursor.close();
+		}
+		return list;
+	}
+	
+	public ArrayList<ExerciseAnswerItem> getExerciseData(int key) {
+		ArrayList<ExerciseAnswerItem> list=new ArrayList<ExerciseAnswerItem>();
+		ExerciseAnswerItem eai=null;
 		
+		Cursor cursor = mSQLiteDatabase.rawQuery("select a.word_chinese,a.word_pinyin,a.word_english,b.answer_a,b.answer_b from tb_words as a,tb_fyexercice as b where a.id=b.fk_words and course_num="+key, null);
+		while (cursor.moveToNext()) {
+			eai=new ExerciseAnswerItem();
+			eai.setAnswer(cursor.getString(cursor.getColumnIndex("answer_a")));
+			eai.setAnswerFlag(eai.getAnswerA());
+			list.add(eai);
+			eai=new ExerciseAnswerItem();
+			eai.setAnswer(cursor.getString(cursor.getColumnIndex("answer_b")));
+			eai.setAnswerFlag(eai.getAnswerB());
+			list.add(eai);
+			eai=new ExerciseAnswerItem();
+			eai.setAnswer(cursor.getString(cursor.getColumnIndex("word_py")));
+			eai.setAnswerFlag(eai.getAnswerC());
+			list.add(eai);
+		}
+		if(cursor!=	null){
+			cursor.close();
+		}
 		return list;
 	}
     

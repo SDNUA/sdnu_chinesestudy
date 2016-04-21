@@ -82,28 +82,39 @@ public class AcyPinyinGame extends Activity implements OnItemClickListener {
 		List<PinyinTableItem> list=getPinYinBiaoList();
 		PinyinTableItem item=list.get(getRandomNum(list.size()));
 		int type=getRandomNum(4);
+		String charDir=null;
+		String char1=null;
 		switch (type) {
 		case 0:
 			str=item.getHanziFirstPy();
-			url+=item.getHanziFirstFy();
+			charDir=item.getmChar();
+			char1=item.getHanziFirst();
+			url = Model.YINPIN_URL + charDir + "/" + char1 + ".wav";
 			break;
 		case 1:
 			str=item.getHanziSecondPy();
-			url+=item.getHanziSecondFy();
+			charDir=item.getmChar();
+			char1=item.getHanziSecond();
+			url = Model.YINPIN_URL + charDir + "/" + char1 + ".wav";
 			break;
 		case 2:
 			str=item.getHanziThirdPy();
-			url+=item.getHanziThirdFy();
+			charDir=item.getmChar();
+			char1=item.getHanziThird();
+			url = Model.YINPIN_URL + charDir + "/" + char1 + ".wav";
 			break;
 		case 3:
 			str=item.getHanziForthPy();
-			url+=item.getHanziForthFy();
+			charDir=item.getmChar();
+			char1=item.getHanziForth();
+			url = Model.YINPIN_URL + charDir + "/" + char1 + ".wav";
+			
 			break;
 
 		default:
 			break;
 		}
-		
+		System.out.println(url);
 		return str;
 	}
 	
