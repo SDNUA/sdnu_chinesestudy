@@ -4,6 +4,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -37,8 +38,25 @@ public class FrmtCharTable extends Fragment implements OnItemClickListener{
 	
 	private void init() {
 		gv=(GridView) view.findViewById(R.id.glPinyinbiao);
+		List<Map<String, String>> data=new ArrayList<Map<String,String>>();
+		Map<String, String> map=new HashMap<String, String>();
+		map.put("hanzi", "一");
+		data.add(map);
+		map=new HashMap<String, String>();
+		map.put("hanzi", "二");
+		data.add(map);
+		map=new HashMap<String, String>();
+		map.put("hanzi", "三");
+		data.add(map);
+		map=new HashMap<String, String>();
+		map.put("hanzi", "四");
+		data.add(map);
+		map=new HashMap<String, String>();
+		map.put("hanzi", "五");
+		data.add(map);
 		
-		
+		SimpleAdapter adapter=new SimpleAdapter(getContext(),data,R.layout.frmtchartable_item_layout,new String[]{"hanzi"},new int[]{R.id.tvHanzi});
+		gv.setAdapter(adapter);
 	}
 
 
