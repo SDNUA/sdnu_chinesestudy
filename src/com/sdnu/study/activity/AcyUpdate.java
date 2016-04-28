@@ -268,5 +268,15 @@ public class AcyUpdate extends Activity {
 				"application/vnd.android.package-archive");
 		this.startActivity(intent);
 	}
+	
+	/* (non-Javadoc)
+	 * @see android.app.Activity#onBackPressed()
+	 */
+	@Override
+	public void onBackPressed() {
+		// TODO Auto-generated method stub
+		super.onBackPressed();
+		finish();
+	}
 
 }

@@ -22,7 +22,7 @@
         android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" >
         <uses-library android:name="android.test.runner"/>
         <activity
-            android:name="com.sdnu.study.activity.MainActivity"
+            android:name="com.sdnu.study.activity.AcyWelcome"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -30,6 +30,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+          <activity
+            android:name="com.sdnu.study.activity.MainActivity">
+          </activity>
         <activity android:name="com.sdnu.study.activity.AcyPinyin">
         </activity>
         <activity android:name="com.sdnu.study.activity.AcyPinyinItem">
@@ -43,6 +46,12 @@
         <activity android:name="com.sdnu.study.activity.AcyChujiMain">
         </activity>
         <activity android:name="com.sdnu.study.activity.AcyUpdate">
+        </activity>
+        <activity android:name="com.sdnu.study.activity.AcyRegister">
+        </activity>
+        <activity android:name="com.sdnu.study.activity.AcyHandWrite">
+        </activity>
+        <activity android:name="com.sdnu.study.activity.AcyBiHuaHandWritting">
         </activity>
     </application>
 

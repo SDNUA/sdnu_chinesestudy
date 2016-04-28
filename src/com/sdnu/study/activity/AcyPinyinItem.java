@@ -22,6 +22,8 @@ import com.sdnu.study.domain.PinyinTableItem;
 import com.sdnu.study.model.Model;
 import com.sdnu.study.myUtils.NetStateUtils;
 import com.sdnu.study.myUtils.PullXMLUtils;
+import com.sdnu.study.net.ThreadPoolUtils;
+import com.sdnu.study.thread.MediaPlayerThread;
 
 public class AcyPinyinItem extends Activity implements OnClickListener {
 
@@ -130,33 +132,14 @@ public class AcyPinyinItem extends Activity implements OnClickListener {
 	 * @param url
 	 */
 
-	private void player(final String url) {
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				Uri uri = Uri.parse(url);
-				boolean flag = NetStateUtils
-						.isNetworkAvailable(AcyPinyinItem.this);
-				if (flag) {
-					player = MediaPlayer.create(getApplicationContext(), uri);
-					player.start();
-				} else {
-					Message msg = new Message();
-					msg.what = 404;
-					msg.obj = "网络异常";
-					hand.sendMessage(msg);
-				}
-
-			}
-		}).start();
+	private void player(String url) {
+		MediaPlayerThread mpt=MediaPlayerThread.getInstance(this, hand, url);
+		ThreadPoolUtils.execute(mpt);
 	}
-
 	@Override
-	protected void onPause() {
+	public void onPause() {
 		super.onPause();
-		if (player != null) {
-			player.stop();
-		}
+		MediaPlayerThread.stopPlayer();
 	}
 
 	@Override
@@ -199,4 +182,14 @@ public class AcyPinyinItem extends Activity implements OnClickListener {
 
 		};
 	};
+	
+	/* (non-Javadoc)
+	 * @see android.app.Activity#onBackPressed()
+	 */
+	@Override
+	public void onBackPressed() {
+		// TODO Auto-generated method stub
+		super.onBackPressed();
+		finish();
+	}
 }

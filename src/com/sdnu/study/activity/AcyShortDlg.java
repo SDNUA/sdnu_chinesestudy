@@ -134,6 +134,15 @@ public class AcyShortDlg extends FragmentActivity  implements OnClickListener {
 		tvDlg.setBackgroundColor(this.getResources().getColor(R.color.pro_white));
 	}
 	
+	/* (non-Javadoc)
+	 * @see android.app.Activity#onBackPressed()
+	 */
+	@Override
+	public void onBackPressed() {
+		// TODO Auto-generated method stub
+		super.onBackPressed();
+		finish();
+	}
 	
 	
 

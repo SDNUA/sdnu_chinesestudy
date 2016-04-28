@@ -15,8 +15,8 @@ public class MainActivity extends Activity implements OnClickListener {
 	private MySlidingMenu slidingMenu;
 	private TextView tvRumen;
 	private TextView tvStart;
+	private TextView tvHandWrite;
 	private TextView tvSlideMenu;
-
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -33,10 +33,12 @@ public class MainActivity extends Activity implements OnClickListener {
 	private void init() {
 		tvRumen = (TextView) this.findViewById(R.id.tvPinyinbiao);
 		tvStart = (TextView) this.findViewById(R.id.tvStart);
+		tvHandWrite = (TextView) this.findViewById(R.id.tvHandWrite);
 		tvSlideMenu = (TextView) this.findViewById(R.id.tvSlideMenu);
 
 		tvRumen.setOnClickListener(this);
 		tvStart.setOnClickListener(this);
+		tvHandWrite.setOnClickListener(this);
 		tvSlideMenu.setOnClickListener(this);
 
 	}
@@ -44,6 +46,7 @@ public class MainActivity extends Activity implements OnClickListener {
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
+		Intent i = null;
 		switch (v.getId()) {
 		case R.id.tvPinyinbiao:
 			Intent ipinyin = new Intent(MainActivity.this, AcyPinyin.class);
@@ -53,7 +56,11 @@ public class MainActivity extends Activity implements OnClickListener {
 			slidingMenu.setToggle(true);
 			break;
 		case R.id.tvStart:
-			Intent i = new Intent(MainActivity.this, AcyChujiMain.class);
+			i = new Intent(MainActivity.this, AcyChujiMain.class);
+			this.startActivity(i);
+			break;
+		case R.id.tvHandWrite:
+			i = new Intent(MainActivity.this, AcyHandWrite.class);
 			this.startActivity(i);
 			break;
 
@@ -63,5 +70,4 @@ public class MainActivity extends Activity implements OnClickListener {
 
 	}
 
-	
 }

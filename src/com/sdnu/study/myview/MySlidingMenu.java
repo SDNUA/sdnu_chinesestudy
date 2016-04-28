@@ -61,6 +61,7 @@ public class MySlidingMenu {
 				public void onClick(View v) {
 					Intent ilogin=new Intent(activity, AcyLogin.class);
 					activity.startActivity(ilogin);
+					setToggle(false);
 				}
 			});
     	}
@@ -100,19 +101,22 @@ public class MySlidingMenu {
 		List<HashMap<String, String>> list=new ArrayList<HashMap<String,String>>();
 		
 		HashMap<String, String> map=new HashMap<String, String>();
-		map.put("tvitem", "我的主页");
+		map.put("tvitem", "个人中心");
 		list.add(map);
 		
 		map=new HashMap<String, String>();
-		map.put("tvitem", "我的主页");
+		map.put("tvitem", "我的生词");
 		list.add(map);
 		
 		map=new HashMap<String, String>();
-		map.put("tvitem", "我的主页");
+		map.put("tvitem", "我的记录");
 		list.add(map);
 		
 		map=new HashMap<String, String>();
 		map.put("tvitem", "更新");
+		list.add(map);
+		map=new HashMap<String, String>();
+		map.put("tvitem", "关于");
 		list.add(map);
 		 
 		 

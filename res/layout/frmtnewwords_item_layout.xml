@@ -38,7 +38,7 @@
             android:textSize="@dimen/_18sp" />
 
         <ImageView
-            android:id="@+id/ivHanziFirstSounds"
+            android:id="@+id/ivNewWordsFy"
             android:layout_width="@dimen/_30dp"
             android:layout_height="@dimen/_30dp"
             android:layout_gravity="center_vertical"

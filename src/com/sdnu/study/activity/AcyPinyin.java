@@ -108,5 +108,15 @@ public class AcyPinyin extends FragmentActivity implements OnClickListener {
 		tvYunmu.setBackgroundColor(this.getResources().getColor(R.color.pro_white));
 		tvShengmu.setBackgroundColor(this.getResources().getColor(R.color.pro_white));
 	}
+	
+	/* (non-Javadoc)
+	 * @see android.app.Activity#onBackPressed()
+	 */
+	@Override
+	public void onBackPressed() {
+		// TODO Auto-generated method stub
+		super.onBackPressed();
+		finish();
+	}
 
 }

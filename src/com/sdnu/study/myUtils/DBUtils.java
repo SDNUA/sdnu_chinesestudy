@@ -12,7 +12,6 @@ import android.database.sqlite.SQLiteDatabase;
 import com.sdnu.study.db.DBHelper;
 import com.sdnu.study.domain.ExerciseAnswerItem;
 import com.sdnu.study.domain.NewWord;
-import com.sdnu.study.domain.PinyinTableItem;
 import com.sdnu.study.domain.ShortDialogItem;
 
 public class DBUtils {
@@ -202,6 +201,19 @@ public class DBUtils {
 		}
 		if(cursor!=	null){
 			cursor.close();
+		}
+		return list;
+	}
+
+	public List<Map<String, String>> getBihuaList() {
+		List<Map<String, String>> list=new ArrayList<Map<String,String>>();
+		Map<String, String> map=null;
+		Cursor cursor = mSQLiteDatabase.rawQuery("select * from tb_bihua", null);
+		while (cursor.moveToNext()) {
+			map=new HashMap<String, String>();
+			map.put("bihua",cursor.getString(cursor.getColumnIndex("bihua")));
+			map.put("bihua_py",cursor.getString(cursor.getColumnIndex("bihua_py")));
+			list.add(map);
 		}
 		return list;
 	}

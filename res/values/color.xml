@@ -9,4 +9,5 @@
     <color name="theme_font_color">#868686</color>
     <color name="pro_shenblue">#1886EF</color>
     <color name="bg_color">#E5E7E6</color>
+    <color name="red">#ff0000</color>
 </resources>

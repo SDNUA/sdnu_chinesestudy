@@ -53,5 +53,15 @@ public class AcyChujiMain extends Activity implements OnItemClickListener {
 		i.putExtra("title", map.get("title"));
 		this.startActivity(i);
 	}
+	
+	/* (non-Javadoc)
+	 * @see android.app.Activity#onBackPressed()
+	 */
+	@Override
+	public void onBackPressed() {
+		// TODO Auto-generated method stub
+		super.onBackPressed();
+		finish();
+	}
 
 }

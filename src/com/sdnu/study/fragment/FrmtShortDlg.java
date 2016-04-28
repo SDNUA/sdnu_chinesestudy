@@ -29,6 +29,8 @@ import com.sdnu.study.interfaces.IOnItemOnclick;
 import com.sdnu.study.model.Model;
 import com.sdnu.study.myUtils.DBUtils;
 import com.sdnu.study.myUtils.NetStateUtils;
+import com.sdnu.study.net.ThreadPoolUtils;
+import com.sdnu.study.thread.MediaPlayerThread;
 
 public class FrmtShortDlg extends Fragment {
 	private View view=null;
@@ -54,41 +56,23 @@ public class FrmtShortDlg extends Fragment {
 		IOnItemOnclick ionClick=new IOnItemOnclick() {
 			@Override
 			public void onclick(int pos) {
-				System.out.println(pos);
-				String url=Model.CHUJI_URL+"class_dialog/"+"class_"+key+"/"+"";
-						player(url);
+				String url=Model.CHUJI_URL+"class_dialog/"+"class_"+key+"/"+(pos+1)+".wav";
+				System.out.println(url);
+				player(url);
 			}
 		};
 		DlgListAdapter dladapter=new DlgListAdapter(context, list,ionClick);
 		lv.setAdapter(dladapter);
 		
 	}
-	private void player(final String url) {
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				Uri uri = Uri.parse(url);
-				boolean flag = NetStateUtils
-						.isNetworkAvailable(getContext());
-				if (flag) {
-					player = MediaPlayer.create(getContext(), uri);
-					player.start();
-				} else {
-					Message msg = new Message();
-					msg.what = 404;
-					msg.obj = "网络异常";
-					hand.sendMessage(msg);
-				}
-
-			}
-		}).start();
+	private void player(String url) {
+		MediaPlayerThread mpt=MediaPlayerThread.getInstance(getContext(), hand, url);
+		ThreadPoolUtils.execute(mpt);
 	}
 	@Override
 	public void onPause() {
 		super.onPause();
-		if (player != null) {
-			player.stop();
-		}
+		MediaPlayerThread.stopPlayer();
 	}
 	Handler hand = new Handler() {
 		@SuppressLint("ShowToast")
