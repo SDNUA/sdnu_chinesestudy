@@ -28,6 +28,22 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static final int border_width=0x7f010000;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int gif=0x7f010002;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int gifViewStyle=0x7f010004;
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int paused=0x7f010003;
     }
     public static final class color {
         public static final int bg_color=0x7f050008;
@@ -43,29 +59,30 @@ containing a value of this type.
     }
     public static final class dimen {
         public static final int _0dp=0x7f060004;
-        public static final int _100dp=0x7f060018;
-        public static final int _10dp=0x7f060007;
-        public static final int _10sp=0x7f060008;
-        public static final int _15sp=0x7f060009;
-        public static final int _16sp=0x7f06000a;
-        public static final int _18sp=0x7f06001b;
-        public static final int _1dp=0x7f06000d;
-        public static final int _20dp=0x7f06000f;
-        public static final int _20sp=0x7f060010;
-        public static final int _25sp=0x7f06001a;
-        public static final int _2dp=0x7f06000c;
-        public static final int _30dp=0x7f060005;
-        public static final int _30sp=0x7f060006;
-        public static final int _40dp=0x7f060015;
-        public static final int _40sp=0x7f060016;
-        public static final int _4dp=0x7f06000e;
-        public static final int _50dp=0x7f060013;
-        public static final int _50sp=0x7f060014;
-        public static final int _5dp=0x7f06000b;
-        public static final int _60dp=0x7f060011;
-        public static final int _60sp=0x7f060012;
-        public static final int _70dp=0x7f060019;
-        public static final int _80dp=0x7f060017;
+        public static final int _100dp=0x7f060019;
+        public static final int _10dp=0x7f060008;
+        public static final int _10sp=0x7f060009;
+        public static final int _15sp=0x7f06000a;
+        public static final int _16sp=0x7f06000b;
+        public static final int _18sp=0x7f06001c;
+        public static final int _1dp=0x7f06000e;
+        public static final int _20dp=0x7f060010;
+        public static final int _20sp=0x7f060011;
+        public static final int _25sp=0x7f06001b;
+        public static final int _2dp=0x7f06000d;
+        public static final int _30dp=0x7f060006;
+        public static final int _30sp=0x7f060007;
+        public static final int _40dp=0x7f060016;
+        public static final int _40sp=0x7f060017;
+        public static final int _4dp=0x7f06000f;
+        public static final int _50dp=0x7f060014;
+        public static final int _50sp=0x7f060015;
+        public static final int _5dp=0x7f06000c;
+        public static final int _60dp=0x7f060012;
+        public static final int _60sp=0x7f060013;
+        public static final int _70dp=0x7f06001a;
+        public static final int _80dp=0x7f060018;
+        public static final int _96dp=0x7f060005;
         /**  Default screen margins, per the Android Design guidelines. 
 
          Example customization of dimensions originally defined in res/values/dimens.xml
@@ -116,12 +133,35 @@ containing a value of this type.
         public static final int mmtitle_bg=0x7f020022;
         public static final int pic_dian=0x7f020023;
         public static final int pic_heng=0x7f020024;
-        public static final int pic_na=0x7f020025;
-        public static final int pic_pie=0x7f020026;
-        public static final int pic_shu=0x7f020027;
-        public static final int selector_btn_back=0x7f020028;
-        public static final int slide_menu=0x7f020029;
-        public static final int test=0x7f02002a;
+        public static final int pic_henggou=0x7f020025;
+        public static final int pic_hengpie=0x7f020026;
+        public static final int pic_hengpiewangou=0x7f020027;
+        public static final int pic_hengzhe=0x7f020028;
+        public static final int pic_hengzhegou=0x7f020029;
+        public static final int pic_hengzheti=0x7f02002a;
+        public static final int pic_hengzhewan=0x7f02002b;
+        public static final int pic_hengzhewangou=0x7f02002c;
+        public static final int pic_hengzhezhepie=0x7f02002d;
+        public static final int pic_hengzhezhezhegou=0x7f02002e;
+        public static final int pic_na=0x7f02002f;
+        public static final int pic_pie=0x7f020030;
+        public static final int pic_piedian=0x7f020031;
+        public static final int pic_piezhe=0x7f020032;
+        public static final int pic_shu=0x7f020033;
+        public static final int pic_shugou=0x7f020034;
+        public static final int pic_shuti=0x7f020035;
+        public static final int pic_shuwan=0x7f020036;
+        public static final int pic_shuwangou=0x7f020037;
+        public static final int pic_shuzhe=0x7f020038;
+        public static final int pic_shuzhepie=0x7f020039;
+        public static final int pic_shuzhezhegou=0x7f02003a;
+        public static final int pic_ti=0x7f02003b;
+        public static final int pic_wangou=0x7f02003c;
+        public static final int pic_wogou=0x7f02003d;
+        public static final int pic_xiegou=0x7f02003e;
+        public static final int selector_btn_back=0x7f02003f;
+        public static final int slide_menu=0x7f020040;
+        public static final int test=0x7f020041;
     }
     public static final class id {
         public static final int LinearLayout1=0x7f0a0010;
@@ -210,7 +250,7 @@ containing a value of this type.
         public static final int tv_forgetpw=0x7f0a000d;
         public static final int tv_slider_item_title=0x7f0a0055;
         public static final int tv_username=0x7f0a004f;
-        public static final int writting=0x7f0a0005;
+        public static final int wbView=0x7f0a0005;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
@@ -352,5 +392,67 @@ containing a value of this type.
           @attr name com.sdnu.study.activity:border_width
         */
         public static final int CircleImageView_border_width = 0;
+        /** Attributes that can be used with a CustomTheme.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #CustomTheme_gifViewStyle com.sdnu.study.activity:gifViewStyle}</code></td><td></td></tr>
+           </table>
+           @see #CustomTheme_gifViewStyle
+         */
+        public static final int[] CustomTheme = {
+            0x7f010004
+        };
+        /**
+          <p>This symbol is the offset where the {@link com.sdnu.study.activity.R.attr#gifViewStyle}
+          attribute's value can be found in the {@link #CustomTheme} array.
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          @attr name com.sdnu.study.activity:gifViewStyle
+        */
+        public static final int CustomTheme_gifViewStyle = 0;
+        /** Attributes that can be used with a GifView.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #GifView_gif com.sdnu.study.activity:gif}</code></td><td></td></tr>
+           <tr><td><code>{@link #GifView_paused com.sdnu.study.activity:paused}</code></td><td></td></tr>
+           </table>
+           @see #GifView_gif
+           @see #GifView_paused
+         */
+        public static final int[] GifView = {
+            0x7f010002, 0x7f010003
+        };
+        /**
+          <p>This symbol is the offset where the {@link com.sdnu.study.activity.R.attr#gif}
+          attribute's value can be found in the {@link #GifView} array.
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          @attr name com.sdnu.study.activity:gif
+        */
+        public static final int GifView_gif = 0;
+        /**
+          <p>This symbol is the offset where the {@link com.sdnu.study.activity.R.attr#paused}
+          attribute's value can be found in the {@link #GifView} array.
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.sdnu.study.activity:paused
+        */
+        public static final int GifView_paused = 1;
     };
 }

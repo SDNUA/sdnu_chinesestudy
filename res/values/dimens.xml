@@ -6,6 +6,7 @@
     <dimen name="sliding_menu_ShadowWidth">60dp</dimen>
     <dimen name="sliding_menu_offset">90dp</dimen>
     <dimen name="_0dp">0dp</dimen>
+    <dimen name="_96dp">96dp</dimen>
     <dimen name="_30dp">30dp</dimen>
     <dimen name="_30sp">30dp</dimen>
     <dimen name="_10dp">10dp</dimen>

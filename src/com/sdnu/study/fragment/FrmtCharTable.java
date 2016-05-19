@@ -1,12 +1,10 @@
 package com.sdnu.study.fragment;
 
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -17,10 +15,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
 import android.widget.SimpleAdapter;
 
-import com.sdnu.study.activity.AcyPinyinItem;
 import com.sdnu.study.activity.R;
-import com.sdnu.study.domain.PinyinTableItem;
-import com.sdnu.study.myUtils.PullXMLUtils;
 
 public class FrmtCharTable extends Fragment implements OnItemClickListener{
 	

@@ -39,15 +39,22 @@ public class FrmtBihuaTable extends Fragment implements OnItemClickListener {
 	}
 
 	private void loadData() {
-		// DBUtils dbUtil = DBUtils.getInstance(getContext());
-		// dbUtil.openMyDb(MyConfig.DB_NAME);
-		// data = dbUtil.getBihuaList();
-		// dbUtil.close(MyConfig.DB_NAME);
+
 		data = new ArrayList<Integer>();
 		int[] pics = new int[] { R.drawable.pic_dian, R.drawable.pic_heng,
 				R.drawable.pic_shu, R.drawable.pic_pie, R.drawable.pic_na,
-				R.drawable.pic_dian, R.drawable.pic_dian };
-		for(int pic:pics){
+				R.drawable.pic_ti, R.drawable.pic_henggou,
+				R.drawable.pic_piedian, R.drawable.pic_hengpie,
+				R.drawable.pic_hengzhezhepie, R.drawable.pic_shuwan,
+				R.drawable.pic_shuzhe, R.drawable.pic_piezhe,
+				R.drawable.pic_shuzhepie, R.drawable.pic_shuzhezhegou,
+				R.drawable.pic_hengzhe, R.drawable.pic_hengzhegou,
+				R.drawable.pic_hengzhewan, R.drawable.pic_hengzhewangou,
+				R.drawable.pic_hengpiewangou, R.drawable.pic_hengzhezhezhegou,
+				R.drawable.pic_shuti, R.drawable.pic_hengzheti,
+				R.drawable.pic_shuwangou,R.drawable.pic_wangou,R.drawable.pic_xiegou,
+				R.drawable.pic_wogou, R.drawable.pic_shugou,};
+		for (int pic : pics) {
 			data.add(pic);
 		}
 	}
@@ -63,7 +70,8 @@ public class FrmtBihuaTable extends Fragment implements OnItemClickListener {
 	@Override
 	public void onItemClick(AdapterView<?> parent, View view, int position,
 			long id) {
-		Intent i=new Intent(getContext(),AcyBiHuaHandWritting.class);
+		Intent i = new Intent(getContext(), AcyBiHuaHandWritting.class);
+		i.putExtra("id",position+1);
 		getContext().startActivity(i);
 	}
 

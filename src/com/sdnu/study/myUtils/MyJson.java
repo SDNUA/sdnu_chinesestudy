@@ -17,7 +17,7 @@ public class MyJson {
 			JSONObject jsonObject = new JSONObject(str);
 			System.out.println(jsonObject.get("stats").toString()
 					+ jsonObject.get("msg").toString());
-			int stats = Integer.parseInt(jsonObject.get("stats").toString());
+			int stats = Integer.parseInt(jsonObject.get("code").toString());
 			if (stats == 200) {
 				JSONArray arrJson = jsonObject.getJSONArray("data");
 				for (int i = 0; i < arrJson.length(); i++) {
